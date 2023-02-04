@@ -8,7 +8,7 @@ const Menu = () => (
     <p><a href="#home">الرئيسية</a></p>
     <p><a href="#whatayn">من نحن؟</a></p>
     <p><a href="#features">المميزات</a></p>
-    <p><a href="#blog">المراحل</a></p>
+    <p><a href="#courses">المراحل</a></p>
     <p><a href="#price">رسوم التسجيل</a></p>
     <p><a href="#contact">اتصال</a></p>
   </>

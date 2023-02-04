@@ -1,7 +1,7 @@
 import React from "react";
 import './App.css';
 import { Brand, CTA, Navbar } from "./components";
-import { Blog, Features, Footer, Header, Possibility, WhatAynAcademy} from './containers'
+import { Courses, Features, Footer, Header, Possibility, WhatAynAcademy} from './containers'
 
 function App() {  
   return (
@@ -15,7 +15,7 @@ function App() {
       <Features />
       <Possibility />
       <CTA />
-      <Blog />
+      <Courses />
       <Footer />
     </div>
   );
