@@ -90,6 +90,7 @@
     width: 100%;
 }
 .ayn__footer-copyright p {
+    direction: ltr;
     font-family: var(--font-family);
     font-size: 12px;
     line-height: 14px;

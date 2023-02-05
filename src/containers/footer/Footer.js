@@ -16,21 +16,20 @@ const Footer = () => {
           <img src={gpt3Logo} alt="logo" />
         </div>
         <div className="ayn__footer-links_div">
-           <h4>Links</h4>
-           <p>Oversons</p>
-           <p>Social Media</p>
-           <p>Counters</p>
-           <p>Contact</p>
+          <h4>الروابط</h4>
+          <p>المراحل</p>
+          <p>سوشيال ميديا</p>
+          <p>اتصل بنا</p>
         </div>
         <div className="ayn__footer-links_div">
-           <h4>Academy</h4>
-           <p>Terms & conditions</p>
-           <p>Privacy Policy</p>
-           <p>Contact</p>
+          <h4>الأكاديمية</h4>
+          <p>القيود والشروط</p>
+          <p>الخصوصية</p>
+          <p>الإتصال</p>
         </div>
       </div>
       <div className="ayn__footer-copyright">
-        <p>© 2023 GPT-3. All rights reserved</p>
+        <p>© 2023 Ayn. All rights reserved</p>
       </div>
     </div>
   )

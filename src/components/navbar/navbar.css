@@ -95,13 +95,11 @@
     .ayn__navbar {
         padding: 2rem 4rem;
     }
-}
-
-
     .ayn__navbar-menu_container button {
         padding: 0.5rem 0.5rem;
         margin-left: 5px;
     }
+}
 @media screen and (max-width: 550px) {
     .ayn__navbar{
         padding: 2rem;

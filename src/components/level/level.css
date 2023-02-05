@@ -1,0 +1,38 @@
+.ayn__levels-container__level {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: row;
+    margin: 1rem;
+}
+.ayn__levels-container__level-text {
+    flex: 2;
+    max-width: 320px;
+    display: flex;
+}
+
+.ayn__levels-container__level-text p {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    color: var(--color-text);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.ayn__levels-container__level-text p svg {
+    margin: 0.25em;
+}
+@media screen and (max-width: 550px) {
+    .ayn__levels-container__level-text p {
+        margin: 1rem 0;
+        font-weight: 300;
+        font-size: 10px;
+        line-height: 15px;
+    }
+    .ayn__levels-container__level-text p svg {
+        size: 15px;
+    }
+}
