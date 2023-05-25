@@ -1,13 +1,14 @@
 const asyncHandler = require('express-async-handler');
 
+const Course = require('../models/courseModel');
+
 // @desc    Get all courses
 // @route   GET /api/courses
 // @access  Public
 
 const getCourses = asyncHandler (async (req, res) => {
-    res.status(200).json({
-        message: 'Get all courses'
-    })
+    const courses = await Course.find();
+    res.status(200).json(courses)
 })
 
 // @desc    Create a new course
@@ -20,9 +21,16 @@ const createCourse = asyncHandler (async (req, res) => {
         throw new Error('Please enter a name');
     }
 
-    res.status(200).json({
-        message: 'Create a new course'
+    const course = await Course.create({
+        name: req.body.name,
+        description: req.body.description,
+        price: req.body.price,
+        category: req.body.category,
+        image: req.body.image,
     })
+
+
+    res.status(200).json(course);
 })
 
 // @desc    Update a course
@@ -30,9 +38,19 @@ const createCourse = asyncHandler (async (req, res) => {
 // @access  Private
 
 const updateCourse = asyncHandler (async (req, res) => {
-    res.status(200).json({
-        message: `Update a course ${req.params.id}`
-    })
+    const course = await Course.findById(req.params.id);
+
+    if(!course) {
+        res.status(404);
+        throw new Error('Course not found');
+    }
+
+    const updatedCourse = await Course.findByIdAndUpdate(req.params.id,
+        req.body, {
+            new: true,
+        })
+
+    res.status(200).json(updatedCourse);
 })
 
 // @desc    Delete a course
@@ -40,9 +58,16 @@ const updateCourse = asyncHandler (async (req, res) => {
 // @access  Private
 
 const deleteCourse = asyncHandler (async (req, res) => {
-    res.status(200).json({
-        message: `Delete a course ${req.params.id}`
-    })
+    const course = await Course.findById(req.params.id);
+
+    if(!course) {
+        res.status(404);
+        throw new Error('Course not found');
+    }
+
+    await course.deleteOne({ _id: req.params.id });
+
+    res.status(200).json({id: req.params.id})
 })
 
 module.exports = {
