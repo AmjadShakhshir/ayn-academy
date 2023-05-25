@@ -91,5 +91,5 @@ npm run build
 ## Author
 
 - Website  - (https://www.amjadshakhshir.com)
-- LinkedIn - (https://www.twitter.com/yourusername)
+- LinkedIn - (https://www.linkedin.com/in/amjad-shakhshir/)
 
