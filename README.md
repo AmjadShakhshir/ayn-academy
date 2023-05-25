@@ -1,0 +1,101 @@
+# Frontend Mentor - Workit landing page solution
+
+This is Ayn-Academy website offering courses in many topics especially in 
+humanities and self development.
+
+## Table of contents
+
+- [Overview](#overview)
+  - [Install](#install)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
+
+## Overview
+
+## Usage
+
+### Env Variables
+
+Create a .env file in then root and add the following
+
+```sh
+NODE_ENV = development
+PORT = 5000
+MONGO_URI = your mongodb uri
+JWT_SECRET = 'secure1234'
+```
+
+### install Dependencies (frontend and backend)
+
+```sh
+npm install
+cd frontend
+npm install
+```
+### Run
+
+```sh
+# Run frontend (:3000) & backend (:5000)
+npm run dev
+
+# Run backend only
+npm run server
+```
+
+### Material UI
+
+Material UI is available as an [npm package](https://www.npmjs.com/package/@mui/material).
+
+**npm:**
+
+```sh
+npm install @mui/material @emotion/react @emotion/styled
+```
+
+**yarn:**
+
+```sh
+yarn add @mui/material @emotion/react @emotion/styled
+```
+## Build & Deploy
+
+```sh
+# Create frontend prod build
+cd frontend
+npm run build
+```
+
+### Screenshot
+
+![](./screenshot.jpg)
+
+### Links
+
+- Live Site URL: (https://your-live-site-url.com)
+
+## My process
+
+### Built with
+
+- Semantic HTML5 markup
+- MUI
+- MERN stack
+- Mobile-first workflow
+- [React](https://reactjs.org/) - JS library
+- [Next.js](https://nextjs.org/) - React framework
+- Redux and toolkit
+
+### Useful resources
+
+- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
+- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+
+## Author
+
+- Website  - (https://www.amjadshakhshir.com)
+- LinkedIn - (https://www.twitter.com/yourusername)
+

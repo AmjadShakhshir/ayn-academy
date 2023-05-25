@@ -1,13 +1,14 @@
 const asyncHandler = require('express-async-handler');
 
 const Course = require('../models/courseModel');
+const User = require('../models/userModel');
 
 // @desc    Get all courses
 // @route   GET /api/courses
 // @access  Public
 
 const getCourses = asyncHandler (async (req, res) => {
-    const courses = await Course.find();
+    const courses = await Course.find({ user: req.user.id });
     res.status(200).json(courses)
 })
 
@@ -27,6 +28,7 @@ const createCourse = asyncHandler (async (req, res) => {
         price: req.body.price,
         category: req.body.category,
         image: req.body.image,
+        user: req.user.id
     })
 
 
@@ -43,6 +45,20 @@ const updateCourse = asyncHandler (async (req, res) => {
     if(!course) {
         res.status(404);
         throw new Error('Course not found');
+    }
+
+    const user = await User.findById(req.user.id);
+
+    // Check for a user
+    if(!user) {
+        res.status(401);
+        throw new Error('User not found');
+    }
+
+    // Check if the user owns the course
+    if(course.user.toString() !== user.id) {
+        res.status(401);
+        throw new Error('You are not authorized to update this course');
     }
 
     const updatedCourse = await Course.findByIdAndUpdate(req.params.id,
@@ -63,6 +79,20 @@ const deleteCourse = asyncHandler (async (req, res) => {
     if(!course) {
         res.status(404);
         throw new Error('Course not found');
+    }
+
+    const user = await User.findById(req.user.id);
+
+    // Check for a user
+    if(!user) {
+        res.status(401);
+        throw new Error('User not found');
+    }
+
+    // Check if the user owns the course
+    if(course.user.toString() !== user.id) {
+        res.status(401);
+        throw new Error('You are not authorized to delete this course');
     }
 
     await course.deleteOne({ _id: req.params.id });

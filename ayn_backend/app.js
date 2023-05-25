@@ -19,6 +19,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/courses', require('./routes/courseRoutes'));
+app.use('/api/users', require('./routes/userRoutes'));
 
 app.use(errorHandler);
 
