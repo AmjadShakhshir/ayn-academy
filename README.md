@@ -1,4 +1,4 @@
-# Frontend Mentor - Workit landing page solution
+# Ayn-Academy
 
 This is Ayn-Academy website offering courses in many topics especially in 
 humanities and self development.
@@ -6,12 +6,11 @@ humanities and self development.
 ## Table of contents
 
 - [Overview](#overview)
-  - [Install](#install)
+  - [Usage](#usage)
   - [Screenshot](#screenshot)
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
-  - [Useful resources](#useful-resources)
 - [Author](#author)
 
 ## Overview
@@ -88,11 +87,6 @@ npm run build
 - [React](https://reactjs.org/) - JS library
 - [Next.js](https://nextjs.org/) - React framework
 - Redux and toolkit
-
-### Useful resources
-
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
 
 ## Author
 
