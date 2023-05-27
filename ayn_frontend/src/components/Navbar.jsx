@@ -13,6 +13,9 @@ import { Link } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import { images } from '../constants';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { useSelector, useDispatch } from 'react-redux';
+import { logout, reset } from '../features/auth/authSlice';
+import { useNavigate } from 'react-router-dom';
 
 const pages = [
     {
@@ -54,7 +57,12 @@ const darkTheme = createTheme({
   },
 });
 
-function ResponsiveAppBar() {
+function Navbar() {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const { user } = useSelector(state => state.auth);
+
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
@@ -64,6 +72,12 @@ function ResponsiveAppBar() {
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
+
+  const onLogout = () => {
+    dispatch(logout());
+    dispatch(reset());
+    navigate('/');
+    };
 
   return (
     <ThemeProvider theme={darkTheme}>
@@ -124,21 +138,38 @@ function ResponsiveAppBar() {
             </Box>
 
             <Box sx={{ flexGrow: 0, mx:'10px' }}>
+                {user ?
+                (
                 <Button
                 variant='contained'
                 size='medium'
                 color='secondary'
                 sx={{
                     mx: '10px',
-                }} >
-                    <Link to="/login">تسجيل الدخول</Link>
+                }}
+                onClick={onLogout}
+                >
+                    تسجيل الخروج
                 </Button>
-                <Button
-                variant='contained'
-                size='medium'
-                color='warning'>
-                    <Link to="/register">انضم إلينا</Link>
-                </Button>
+                ) : (
+                    <>
+                    <Button
+                    variant='contained'
+                    size='medium'
+                    color='secondary'
+                    sx={{
+                        mx: '10px',
+                    }} >
+                        <Link to="/login">تسجيل الدخول</Link>
+                    </Button>
+                    <Button
+                    variant='contained'
+                    size='medium'
+                    color='warning'>
+                        <Link to="/register">انضم إلينا</Link>
+                    </Button>
+                </>
+                )}
             </Box>
             <Box sx={{ flexGrow: 0 }}>
                <Link to="/">
@@ -151,4 +182,4 @@ function ResponsiveAppBar() {
     </ThemeProvider>
   );
 }
-export default ResponsiveAppBar;
+export default Navbar;

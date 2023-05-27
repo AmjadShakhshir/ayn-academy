@@ -47,16 +47,14 @@ const updateCourse = asyncHandler (async (req, res) => {
         throw new Error('Course not found');
     }
 
-    const user = await User.findById(req.user.id);
-
     // Check for a user
-    if(!user) {
+    if(!req.user) {
         res.status(401);
         throw new Error('User not found');
     }
 
     // Check if the user owns the course
-    if(course.user.toString() !== user.id) {
+    if(course.user.toString() !== req.user.id) {
         res.status(401);
         throw new Error('You are not authorized to update this course');
     }
@@ -81,16 +79,15 @@ const deleteCourse = asyncHandler (async (req, res) => {
         throw new Error('Course not found');
     }
 
-    const user = await User.findById(req.user.id);
 
     // Check for a user
-    if(!user) {
+    if(!req.user) {
         res.status(401);
         throw new Error('User not found');
     }
 
     // Check if the user owns the course
-    if(course.user.toString() !== user.id) {
+    if(course.user.toString() !== req.user.id) {
         res.status(401);
         throw new Error('You are not authorized to delete this course');
     }

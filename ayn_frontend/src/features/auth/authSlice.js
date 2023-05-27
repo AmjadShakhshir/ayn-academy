@@ -12,9 +12,10 @@ const initialState = {
     message: '',
 }
 
+// Thunk for register and login actions
 export const register = createAsyncThunk(
     'auth/register',
-    async (user, thunkAPI) => {
+    async (user, thunkAPI) => { // user has data came from dispatch register data
         try {
             return await authService.register(user)
         } catch (error) {
@@ -27,6 +28,7 @@ export const register = createAsyncThunk(
     }
 )
 
+// login thunk action
 export const login = createAsyncThunk(
     'auth/login',
     async (user, thunkAPI) => {
@@ -44,6 +46,7 @@ export const login = createAsyncThunk(
     }
 )
 
+// logout thunk action
 export const logout = createAsyncThunk(
     'auth/logout',
     async () => {

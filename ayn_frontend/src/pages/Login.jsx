@@ -1,12 +1,18 @@
-import { Box, Button, Typography, FormControl, Grid, TextField, Paper } from '@mui/material'
-import React from 'react'
-import { FaSignInAlt } from 'react-icons/fa'
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { Box,
+  Button,
+  Typography,
+  FormControl,
+  Grid,
+  TextField,
+  Paper } from '@mui/material'
+import React from 'react'
+import { FaSignInAlt } from 'react-icons/fa'
 import { login, reset } from '../features/auth/authSlice'
 import Spinner from '../components/Spinner.jsx'
 import { toast } from 'react-toastify'
-import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -43,15 +49,12 @@ const Login = () => {
 
   const onSubmit = (e) => {
     e.preventDefault()
-    // if(password !== password_confirmation) {
-    //   toast.error('كلمة المرور غير متطابقة')
-    // } else {
-    //   const userData = {
-    //     email,
-    //     password,
-    //   }
-    //   dispatch(register(userData))
-    // }
+    
+    const userData = {
+      email,
+      password,
+    }
+    dispatch(login(userData))
   }
 
   if (isLoading) {

@@ -4,9 +4,9 @@ import { FaUser } from 'react-icons/fa'
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { register, reset } from '../features/auth/authSlice'
-import Spinner from '../components/Spinner.jsx'
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
+import Spinner from '../components/Spinner'
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -69,7 +69,12 @@ const Register = () => {
             <Typography component='h1' variant='h3'>
               <FaUser /> إنشاء حساب جديد
             </Typography>
-            <Box component='form' onSubmit={onSubmit} noValidate autoComplete='off' sx={{ mt: 1 }}>
+            <Box
+            component='form'
+            onSubmit={onSubmit}
+            noValidate
+            autoComplete='off'
+            sx={{ mt: 1 }}>
               <FormControl
               sx={{ m: 1, width: '50%'}}>
                 <TextField
