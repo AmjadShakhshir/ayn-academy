@@ -1,18 +1,43 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
+import { AppBar,
+    Box,
+    Toolbar,
+    IconButton,
+    Typography,
+    Menu,
+    Container,
+    Button,
+    MenuItem,
+} from '@mui/material'; 
+import { Link } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
-import MenuItem from '@mui/material/MenuItem';
 import { images } from '../constants';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
-const pages = ['الرئيسية', 'من نحن؟', 'المميزات', 'الفرص', 'الدروس', 'عن الدورة'];
+const pages = [
+    {
+        name: 'الرئيسية',
+        path: '/',
+    },{
+        name: 'من نحن ؟',
+        path: '/about',
+    },{
+        name: 'الدروس',
+        path: '/courses',
+    },{
+        name: 'المدونة',
+        path: '/blog',
+    },{
+        name: 'المنتدى',
+        path: '/forum',
+    },{
+        name: 'المساعدة',
+        path: '/help',
+    },{
+        name: 'اتصل بنا',
+        path: '/contact',
+    },
+];
 
 const darkTheme = createTheme({
   palette: {
@@ -75,8 +100,8 @@ function ResponsiveAppBar() {
                 }}
                 >
                 {pages.map((page) => (
-                    <MenuItem key={page} onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">{page}</Typography>
+                    <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center">{page.name}</Typography>
                     </MenuItem>
                 ))}
                 </Menu>
@@ -93,7 +118,7 @@ function ResponsiveAppBar() {
                         display: 'block',
                         fontSize: '1rem', }}
                 >
-                    {page}
+                    <Link to={page.path} >{page.name}</Link>
                 </Button>
                 ))}
             </Box>
@@ -105,14 +130,20 @@ function ResponsiveAppBar() {
                 color='secondary'
                 sx={{
                     mx: '10px',
-                }} >تسجيل دخول</Button>
+                }} >
+                    <Link to="/login">تسجيل الدخول</Link>
+                </Button>
                 <Button
                 variant='contained'
                 size='medium'
-                color='warning'>انضم إلينا</Button>
+                color='warning'>
+                    <Link to="/register">انضم إلينا</Link>
+                </Button>
             </Box>
             <Box sx={{ flexGrow: 0 }}>
-                <img src={images.logo01} alt="logo" />
+               <Link to="/">
+                    <img src={images.logo01} alt="logo" />
+                </Link>
             </Box>
             </Toolbar>
         </Container>

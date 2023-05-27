@@ -70,11 +70,12 @@ npm run build
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![](./Screenshot_App.png)
+
 
 ### Links
 
-- Live Site URL: (https://your-live-site-url.com)
+- Live Site URL: (https://bookorio.com/)
 
 ## My process
 
