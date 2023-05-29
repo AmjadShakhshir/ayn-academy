@@ -1,4 +1,4 @@
-import { Box, Button, FormControl, TextField } from "@material-ui/core";
+import { Box, Button, FormControl, Grid, TextField } from "@material-ui/core";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -6,14 +6,14 @@ import { createCourse } from "../features/courses/courseSlice";
 
 const CourseForm = () => {
     const [courseForm, setCourseForm] = useState({
-        courseName: '',
+        name: '',
         description: '',
         price: '',
         category: '',
         image: '',
     })
 
-    const {courseName, description, price, category, image} = courseForm
+    const {name, description, price, category, image} = courseForm
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
@@ -28,7 +28,7 @@ const CourseForm = () => {
         e.preventDefault()
 
         const courseData = {
-            courseName,
+            name,
             description,
             price,
             category,
@@ -38,24 +38,30 @@ const CourseForm = () => {
         navigate('/dashboard')
     }
   return (
-    <Box variant="section">
+    <Grid container sx={{
+        margin: '5px',
+        padding: '5px',
+    }}>
         <Box
             component='form'
             onSubmit={onSubmit}
             noValidate
             autoComplete='off'
-            sx={{ mt: 1 }} >
+            sx={{ m: 1, p: 1 }} >
+            <Grid item xs={12}>
             <FormControl variant="outlined">
                 <TextField
                 id="outlined-basic"
                 label="اسم الدورة"
                 variant="outlined"
                 type="text"
-                name="courseName"
-                value={courseName}
+                name="name"
+                value={name}
                 onChange={onChange}
                 />
             </FormControl>
+            </Grid>
+            <Grid item xs={12}>
             <FormControl variant="outlined">
                 <TextField
                 name="description"
@@ -67,6 +73,8 @@ const CourseForm = () => {
                 onChange={onChange}
                 />
             </FormControl>
+            </Grid>
+            <Grid item xs={12}>
             <FormControl variant="outlined">
                 <TextField
                 id="outlined-basic"
@@ -78,6 +86,8 @@ const CourseForm = () => {
                 onChange={onChange}
                 />
             </FormControl>
+            </Grid>
+            <Grid item xs={12}>
             <FormControl variant="outlined">
                 <TextField
                 name="category"
@@ -89,6 +99,8 @@ const CourseForm = () => {
                 onChange={onChange}
                 />
             </FormControl>
+            </Grid>
+            <Grid item xs={12}>
             <FormControl variant="outlined">
                 <TextField
                 name="image"
@@ -100,6 +112,7 @@ const CourseForm = () => {
                 onChange={onChange}
                 />
             </FormControl> 
+            </Grid>
         <Button
         type='submit'
         variant="contained"
@@ -107,7 +120,7 @@ const CourseForm = () => {
             اضافة
         </Button>
         </Box>  
-    </Box>
+    </Grid>
   )
 }
 
