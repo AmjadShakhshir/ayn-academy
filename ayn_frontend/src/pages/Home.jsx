@@ -1,8 +1,19 @@
 import { Box, Button, Grid, TextField, Typography } from "@mui/material"
 import { images } from "../constants"
 import { Link } from "react-router-dom"
+import { useState } from "react"
 
 const Home = () => {
+    const [ email, setEmail ] = useState('');
+
+    const onChange = (e) => {
+        setEmail(e.target.value);
+    }
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+        console.log(email);
+    }
   return (
     <Box variant="main" sx={{ flexGrow: 1,
     p: 3,
@@ -22,15 +33,20 @@ const Home = () => {
                 <Box variant="section" mb={2}>    
                     <TextField id="outlined-basic"
                     label="البريد الإلكتروني"
+                    name="email"
+                    value={email}
+                    onChange={onChange}
                     variant="outlined"
                     sx={{ width: "70%",
                     borderTopLeftRadius: 0,
                     borderBottomLeftRadius: 0,}}
                     />
                     <Button
+                    onClick={onSubmit}
                     variant="contained"
                     sx={{ p: 2 }}> 
-                        <Link to="/register">إبدأ الآن</Link>
+                        {/* State attribute to pass email to register page */}
+                        <Link to="/register" state= {{ email: email }}>إبدأ الآن</Link>
                     </Button>
                 </Box>
 

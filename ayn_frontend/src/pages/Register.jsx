@@ -1,20 +1,25 @@
 import { Box, Button, Typography, FormControl, Grid, TextField, Paper } from '@mui/material'
-import React from 'react'
 import { FaUser } from 'react-icons/fa'
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { register, reset } from '../features/auth/authSlice'
 import { toast } from 'react-toastify'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import Spinner from '../components/Spinner'
 
-const Register = () => {
+const Register = (props) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     password: '',
     password_confirmation: ''
   });
+
+  // This snippets to pass email from Home.jsx to Register.jsx
+  // using react-router-dom hooks (useLocation)
+  // 
+  const location = useLocation()
+  const emailForm = location.state ? location.state.email : ''
 
   const { name, email, password, password_confirmation } = formData
 
@@ -95,7 +100,7 @@ const Register = () => {
                 id='email'
                 name='email'
                 type='email'
-                value={email}
+                value={emailForm ? emailForm : email}
                 onChange={handleChange}
                 required
                 label='البريد الإلكتروني'
