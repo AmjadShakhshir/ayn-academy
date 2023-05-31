@@ -70,7 +70,7 @@ npm run build
 
 ### Screenshot
 
-![](./Screenshot_App.png)
+![](./Screenshot.png)
 
 
 ### Links
