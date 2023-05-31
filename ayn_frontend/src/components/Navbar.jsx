@@ -55,6 +55,15 @@ const darkTheme = createTheme({
         main: '#cc8a65',
     },
   },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 500,
+      md: 668,
+      lg: 992,
+      xl: 1336,
+    },
+  },
 });
 
 function Navbar() {
@@ -82,9 +91,9 @@ function Navbar() {
   return (
     <ThemeProvider theme={darkTheme}>
         <AppBar position="static">
-        <Container maxWidth="xl">
+        <Container maxWidth="100%">
             <Toolbar disableGutters>
-            <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+            <Box sx={{ flexGrow: 1, display: { md: 'flex', lg: 'none' } }}>
                 <IconButton
                 size="large"
                 aria-label="account of current user"
@@ -110,7 +119,7 @@ function Navbar() {
                 open={Boolean(anchorElNav)}
                 onClose={handleCloseNavMenu}
                 sx={{
-                    display: { xs: 'block', md: 'none' },
+                    display: { md: 'block', lg: 'none' },
                 }}
                 >
                 {pages.map((page) => (
@@ -120,7 +129,10 @@ function Navbar() {
                 ))}
                 </Menu>
             </Box>
-            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+            <Box
+
+            sx={{ flexGrow: 1,
+                    display: { xs: 'none', lg: 'flex' } }}>
                 {pages.map((page) => (
                 <Button
                     key={page.name}
@@ -137,7 +149,9 @@ function Navbar() {
                 ))}
             </Box>
 
-            <Box sx={{ flexGrow: 0, mx:'10px' }}>
+            <Box sx={{ flexGrow: 0,
+                mx:'10px',
+                display: 'flex' }}>
                 {user ?
                 (
                 <Button
@@ -159,21 +173,28 @@ function Navbar() {
                     color='secondary'
                     sx={{
                         mx: '10px',
+                        display: { xs: 'none', md: 'block' },
                     }} >
                         <Link to="/login">تسجيل الدخول</Link>
                     </Button>
                     <Button
                     variant='contained'
                     size='medium'
+                    sx={{
+                        display: { xs: 'none', md: 'block' },
+                    }}
                     color='warning'>
                         <Link to="/register">انضم إلينا</Link>
                     </Button>
                 </>
                 )}
             </Box>
-            <Box sx={{ flexGrow: 0 }}>
+            <Box sx={{ flexGrow: 0}}>
                <Link to="/">
-                    <img src={images.logo01} alt="logo" />
+                    <img 
+                    src={images.logo01}
+                    style={{ width: 100, height: 50 }}
+                    alt="logo" />
                 </Link>
             </Box>
             </Toolbar>

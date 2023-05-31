@@ -1,16 +1,20 @@
 import { Box } from "@mui/material"
+import { images } from "../constants"
 
 const Brands = () => {
   return (
-    <Box variant="section" sx={{ flexGrow: 1,
-    p: 3,
-    bgcolor: 'rgba(250,204,128, .2)' }}>
-        <img src="https://via.placeholder.com/128x90.png?text=Visit+Blogging.com+Now" alt="placeholder" />
-        <img src="https://via.placeholder.com/128x90.png?text=Visit+Blogging.com+Now" alt="placeholder" />
-        <img src="https://via.placeholder.com/128x90.png?text=Visit+Blogging.com+Now" alt="placeholder" />
-        <img src="https://via.placeholder.com/128x90.png?text=Visit+Blogging.com+Now" alt="placeholder" />
-        <img src="https://via.placeholder.com/128x90.png?text=Visit+Blogging.com+Now" alt="placeholder" />
-        <img src="https://via.placeholder.com/128x90.png?text=Visit+Blogging.com+Now" alt="placeholder" />
+    <Box variant="section"
+    sx={{ flexGrow: 1,
+      p: 5,
+      bgcolor: 'black',
+      display: 'flex',
+      justifyContent: 'space-evenly',
+      }}>
+        <img src={images.atlassian} alt="atlassian" />
+        <img src={images.dropbox} alt="dropbox" />
+        <img src={images.google} alt="google" />
+        <img src={images.slack} alt="slack" />
+        <img src={images.shopify} alt="shopify" />
     </Box>
   )
 }
