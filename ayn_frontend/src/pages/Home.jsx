@@ -1,8 +1,9 @@
 import { Box, Button, Grid, TextField, Typography } from "@mui/material"
-import { images } from "../constants"
-import { Link } from "react-router-dom"
-import { useState } from "react"
-import { Brands, Why } from "../containers"
+import { images } from "../constants";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import Brands from "../containers/Brands";
+import Why from "../containers/Why";
 
 const Home = () => {
     const [ email, setEmail ] = useState('');

@@ -4,7 +4,6 @@ import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
-import Logout from "./pages/Logout";
 import ErrorPage from "./pages/ErrorPage";
 import Root from "./pages/Root";
 
@@ -29,10 +28,6 @@ function App() {
         {
           path: '/register',
           element: <Register />
-        },
-        {
-          path: '/logout',
-          element: <Logout />
         },
       ]
     },
