@@ -1,45 +1,49 @@
-import React from "react";
-import { createTheme, ThemeProvider, CssBaseline, Container } from '@mui/material';
-import './App.css';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
-import { Header } from "./containers";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
+import Logout from "./pages/Logout";
+import ErrorPage from "./pages/ErrorPage";
+import Root from "./pages/Root";
 
 function App() {  
-  // To change the default font-family for whole app
-  const theme = createTheme ({
-    typography: {
-      h3: { 
-        fontFamily:'RecoletaBold',
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <Root />,
+      children: [
+        {
+          path: '/',
+          element: <Home />
+        },
+        {
+          path: '/dashboard',
+          element: <Dashboard />
+        },
+        {
+          path: '/login',
+          element: <Login />
+        },
+        {
+          path: '/register',
+          element: <Register />
+        },
+        {
+          path: '/logout',
+          element: <Logout />
+        },
+      ]
+    },
+      {
+        path: '*',
+        element: <ErrorPage />
       }
-    },
-    Container: {
-      maxWidth: 'xl',
-    },
-  });
+  ]);
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Router>
-        <Container maxWidth='xl'>
-          <Header />
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/dashboard' element={<Dashboard />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/register' element={<Register />} />
-          </Routes>
-        </Container>
-      </Router>
-      <ToastContainer />
-    </ThemeProvider>
-  );
+    <RouterProvider router={router} />
+  )
 }
 
 export default App;
