@@ -2,9 +2,10 @@
   "name": "Ayn-Academy",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "start": "node ayn_backend/bin/www",
-    "server": "nodemon ayn_backend/bin/www",
+    "server": "nodemon index.js",
     "client": "npm start --prefix ayn_frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
