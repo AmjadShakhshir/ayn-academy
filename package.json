@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "server": "nodemon ayn_backend/index.js",
+    "server": "npx tsx watch ./ayn_backend/index.ts",
     "client": "npm start --prefix ayn_frontend"
   },
   "dependencies": {
@@ -23,9 +23,14 @@
     "morgan": "~1.9.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "^5.0.1"
+    "react-scripts": "^5.0.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
-    "nodemon": "^2.0.22"
+    "@types/express": "^4.17.20",
+    "nodemon": "^2.0.22",
+    "tsx": "^3.14.0"
   }
 }
