@@ -4,10 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "node ayn_backend/bin/www",
-    "server": "nodemon index.js",
-    "client": "npm start --prefix ayn_frontend",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "server": "nodemon ayn_backend/index.js",
+    "client": "npm start --prefix ayn_frontend"
   },
   "dependencies": {
     "@types/react": "^18.2.37",
