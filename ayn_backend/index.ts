@@ -4,22 +4,21 @@ import "dotenv/config";
 
 import { apiErrorHandler} from './middlewares/apiErrorHandler';
 import { routeNotFound } from './middlewares/routeNotFound';
+import usersRouter from './routes/userRouter';
+import { loggingMiddleware } from './middlewares/logging';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
 
 // Connect to MongoDB
 const mongoURL = process.env.MONGO_URI as string;
 mongoose.connect(mongoURL).then(() => console.log("Connected!"));
 
 // Routes
-app.get('/', (req, res) => {
-    res.send("Hello World!");
-});
+app.use('/api/v1/users', loggingMiddleware,usersRouter);
 
 app.use(apiErrorHandler);
 app.use(routeNotFound);
