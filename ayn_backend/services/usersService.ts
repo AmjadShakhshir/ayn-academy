@@ -80,4 +80,5 @@ export default {
     updateUser,
     deleteUser,
     signup,
+    login
 };
