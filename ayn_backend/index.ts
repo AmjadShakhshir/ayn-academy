@@ -5,6 +5,7 @@ import "dotenv/config";
 import { apiErrorHandler} from './middlewares/apiErrorHandler';
 import { routeNotFound } from './middlewares/routeNotFound';
 import usersRouter from './routes/userRouter';
+import courseRouter from './routes/courseRouter';
 import { loggingMiddleware } from './middlewares/logging';
 
 const app = express();
@@ -18,7 +19,8 @@ const mongoURL = process.env.MONGO_URI as string;
 mongoose.connect(mongoURL).then(() => console.log("Connected!"));
 
 // Routes
-app.use('/api/v1/users', loggingMiddleware,usersRouter);
+app.use('/api/v1/users', loggingMiddleware, usersRouter);
+app.use('/api/v1/courses', loggingMiddleware, courseRouter);
 
 app.use(apiErrorHandler);
 app.use(routeNotFound);
