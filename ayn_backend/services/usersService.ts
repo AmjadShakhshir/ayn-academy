@@ -1,5 +1,9 @@
 import mongoose from "mongoose";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+
 import UserRepo from "../models/UserModel";
+import RoleRepo from "../models/RoleModel";
 import { User, UserUpdate } from "../types/User";
 
 async function findAll() {
@@ -33,10 +37,47 @@ async function deleteUser(index: string) {
     return deletedUser;
 }
 
+async function signup (name: string, email: string, password: string){
+    const hashedPassword = bcrypt.hashSync(password, 10);
+    const user = new UserRepo({ name, email, password: hashedPassword });
+    await user.save();
+    const newUser = { name, email };
+    return newUser;
+}
+
+async function login (email: string, password: string){
+    const checkUser = await UserRepo.findOne({ email: email  });
+    if (!checkUser) {
+        return null;
+    }
+
+    const checkPassword = bcrypt.compareSync(password, checkUser.password);
+    if (!checkPassword) {
+        return null;
+    }
+
+    const checkRole = await RoleRepo.findById({ _id: checkUser.id });
+    if (!checkRole) {
+        return null;
+    }
+
+    const payload = {
+        email: checkUser.email,
+        role: checkRole.name
+    };
+
+    const accessToken = jwt.sign(payload, process.env.JWT_SECRET as string, { 
+        expiresIn: "1h"
+    });
+
+    return accessToken;
+}
+
 export default {
     findAll,
     getSingleUser,
     createUser,
     updateUser,
-    deleteUser
+    deleteUser,
+    signup,
 };
