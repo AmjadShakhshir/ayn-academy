@@ -9,7 +9,6 @@ export function checkAuth(
   next: NextFunction
 ) {
   const token = req.headers.authorization?.split(" ")[1];
-  
   if (!token) {
     next(ApiError.forbidden("Token is missing"));
     return;

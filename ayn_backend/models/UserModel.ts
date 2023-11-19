@@ -19,7 +19,7 @@ const UserSchema = new Schema({
         type: Schema.Types.ObjectId,
         default: "6559e34f8d0656d1901eaae7",
         ref: "Role",
-    },
+    }
 });
 
 export default mongoose.model("User", UserSchema);
