@@ -11,7 +11,7 @@ async function findAll() {
     return users;
 }
 
-async function getSingleUser(index: string) {
+async function findOne(index: string) {
     const id = new mongoose.Types.ObjectId(index);
     const user = await UserRepo.findById(id);
     return user;
@@ -74,7 +74,7 @@ async function logIn (email: string, password: string){
 
 export default {
     findAll,
-    getSingleUser,
+    findOne,
     createUser,
     updateUser,
     deleteUser,

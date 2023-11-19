@@ -10,7 +10,7 @@ export async function getSingleUser(
     ) {
         try {
             const id = req.params.userId;
-            const user = await usersService.getSingleUser(id);
+            const user = await usersService.findOne(id);
             if (!user) {
                 next(ApiError.resourceNotFound("User not found"));
                 return;
