@@ -14,7 +14,7 @@ export async function getSingleCourse(
             next(ApiError.resourceNotFound("Course not found"));
             return;
         }
-        res.status(200).json({ course });
+        res.status(200).json({ course, message: "Course found" });
     } catch (error) {
         next(ApiError.resourceNotFound("Course not found"));
     }
