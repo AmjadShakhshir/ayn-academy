@@ -37,7 +37,7 @@ async function deleteUser(index: string) {
     return deletedUser;
 }
 
-async function signup (name: string, email: string, password: string){
+async function signUp (name: string, email: string, password: string){
     const hashedPassword = bcrypt.hashSync(password, 10);
     const user = new UserRepo({ name, email, password: hashedPassword });
     await user.save();
@@ -45,7 +45,7 @@ async function signup (name: string, email: string, password: string){
     return newUser;
 }
 
-async function login (email: string, password: string){
+async function logIn (email: string, password: string){
     const checkUser = await UserRepo.findOne({ email: email  });
     if (!checkUser) {
         return null;
@@ -56,7 +56,7 @@ async function login (email: string, password: string){
         return null;
     }
 
-    const checkRole = await RoleRepo.findById({ _id: checkUser.id });
+    const checkRole = await RoleRepo.findById({ _id: checkUser.roleId });
     if (!checkRole) {
         return null;
     }
@@ -69,7 +69,6 @@ async function login (email: string, password: string){
     const accessToken = jwt.sign(payload, process.env.JWT_SECRET as string, { 
         expiresIn: "1h"
     });
-
     return accessToken;
 }
 
@@ -79,6 +78,6 @@ export default {
     createUser,
     updateUser,
     deleteUser,
-    signup,
-    login
+    signUp,
+    logIn
 };
