@@ -7,5 +7,7 @@ import { courseSchema } from '../schemas/courseSchema';
 const coursesRouter = express.Router();
 
 coursesRouter.get('/', coursesController.getAllCourses);
+coursesRouter.get('/:id', coursesController.getSingleCourse);
+coursesRouter.post('/', validate(courseSchema), coursesController.createCourse);
 
 export default coursesRouter;

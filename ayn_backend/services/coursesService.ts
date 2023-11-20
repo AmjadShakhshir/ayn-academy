@@ -1,5 +1,7 @@
 import mongoose from 'mongoose';
+
 import CourseRepo from '../models/CourseModel';
+import { Course, UpdateCourse } from '../types/Course';
 
 async function findAll() {
     const courses = await CourseRepo.find().exec();
@@ -12,13 +14,13 @@ async function findOne(index: string) {
     return course;
 }
 
-async function createCourse(course: any) {
+async function addCourse(course: Course) {
     const newCourse = new CourseRepo(course);
     await newCourse.save();
     return newCourse;
 }
 
-async function updateCourse(index: string, course: any) {
+async function updateCourse(index: string, course: UpdateCourse) {
     const updatedCourse = await CourseRepo.findOneAndUpdate(
         { _id: index },
         course,
@@ -35,7 +37,7 @@ async function deleteCourse(index: string) {
 export default {
     findAll,
     findOne,
-    createCourse,
+    addCourse,
     updateCourse,
     deleteCourse,
 };

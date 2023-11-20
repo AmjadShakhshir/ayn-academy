@@ -8,7 +8,7 @@ export async function createCourse(
     next: NextFunction) {
     try {
         const course = req.body;
-        const newCourse = await coursesService.createCourse(course);
+        const newCourse = await coursesService.addCourse(course);
         res.status(201).json({ newCourse, message: "Course created" });
     }
     catch (error) {
