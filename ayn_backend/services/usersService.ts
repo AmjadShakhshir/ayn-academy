@@ -39,7 +39,11 @@ async function deleteUser(index: string) {
 
 async function signUp (name: string, email: string, password: string){
     const hashedPassword = bcrypt.hashSync(password, 10);
-    const user = new UserRepo({ name, email, password: hashedPassword });
+    const user = new UserRepo({ 
+        name,
+        email,
+        password: hashedPassword
+    });
     await user.save();
     const newUser = { name, email };
     return newUser;

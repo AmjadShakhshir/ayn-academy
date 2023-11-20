@@ -1,3 +1,4 @@
+// This way is better than using enum
 export const ROLE = {
   USER: "USER",
   ADMIN: "ADMIN",
