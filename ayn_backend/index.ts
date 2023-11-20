@@ -6,6 +6,7 @@ import { apiErrorHandler} from './middlewares/apiErrorHandler';
 import { routeNotFound } from './middlewares/routeNotFound';
 import usersRouter from './routes/userRouter';
 import coursesRouter from './routes/courseRouter';
+import paymentRouter from './routes/paymentRouter';
 import { loggingMiddleware } from './middlewares/logging';
 
 const app = express();
@@ -21,6 +22,7 @@ mongoose.connect(mongoURL).then(() => console.log("Connected!"));
 // Routes
 app.use('/api/v1/users', loggingMiddleware, usersRouter);
 app.use('/api/v1/courses', loggingMiddleware, coursesRouter);
+app.use('/api/v1/payment', loggingMiddleware, paymentRouter);
 
 app.use(apiErrorHandler);
 app.use(routeNotFound);

@@ -3,7 +3,6 @@ import express from 'express';
 import coursesController from '../controllers/courses';
 import { validate } from '../middlewares/validate';
 import { courseSchema, updateCourseSchema } from '../schemas/courseSchema';
-import courses from '../controllers/courses';
 
 const coursesRouter = express.Router();
 
