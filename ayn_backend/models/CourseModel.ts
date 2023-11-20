@@ -19,7 +19,10 @@ const CourseSchema = new Schema({
         type: Schema.Types.ObjectId,
         required: true,
         ref: "User",
-    }
+    },
+    courseDate: {
+        type: Date,
+    },
 });
 
 export default mongoose.model("Course", CourseSchema);
