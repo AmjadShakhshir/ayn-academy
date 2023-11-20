@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 export const courseBodySchema = z.object({
     name: z.string().min(3).max(20),
     code: z.string().min(3).max(20),
-    description: z.string().min(3).max(20),
+    description: z.string().min(3).max(200),
     userId: z.string().refine((val) => mongoose.Types.ObjectId.isValid(val)),
 }).strict();
 
