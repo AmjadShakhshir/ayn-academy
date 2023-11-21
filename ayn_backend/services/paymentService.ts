@@ -22,14 +22,14 @@ async function addPayment(newPayment: Payment) {
     if (!user) {
         return null;
     }
-    const findCourse = await CourseRepo.find({ coursesId });
+    const findCourse = await CourseRepo.find({ userId });
     if (!findCourse) {
         return null;
     }
     const existingCourses = findCourse.filter((course) => {
-        coursesId.includes(course._id.toString());
+        return  coursesId.includes(course._id.toString());
     });
-    const createPayment = await Promise.all(
+    const createdPayments = await Promise.all(
         existingCourses.map(async (course) => {
             const paymentDate = new Date();
             const existingPayment = await PaymentRepo.findOne({
@@ -37,7 +37,7 @@ async function addPayment(newPayment: Payment) {
                 coursesId: course._id,
             });
             if (!existingPayment) {
-                const cretedPayment = new PaymentRepo({
+                const createdPayment = new PaymentRepo({
                     userId,
                     coursesId: course._id,
                     method,
@@ -45,17 +45,17 @@ async function addPayment(newPayment: Payment) {
                     accountNumber,
                     paymentDate,
                 });
-                await cretedPayment.save();
+                await createdPayment.save();
                 await CourseRepo.findByIdAndUpdate(
                     course._id, {
                         paymentStatus: "success",
-                        paymentId: cretedPayment._id,
+                        paymentId: createdPayment._id,
                     });
-                return cretedPayment;
+                return createdPayment;
             }
         })
     );
-    return createPayment.filter(Boolean);
+    return createdPayments.filter(Boolean);
 }
 
 export default {
