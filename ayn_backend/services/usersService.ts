@@ -37,12 +37,13 @@ async function deleteUser(index: string) {
     return deletedUser;
 }
 
-async function signUp (name: string, email: string, password: string){
+async function signUp (name: string, email: string, password: string, roleId: string){
     const hashedPassword = bcrypt.hashSync(password, 10);
     const user = new UserRepo({ 
         name,
         email,
-        password: hashedPassword
+        password: hashedPassword,
+        roleId
     });
     await user.save();
     const newUser = { name, email };
@@ -52,22 +53,35 @@ async function signUp (name: string, email: string, password: string){
 async function logIn (email: string, password: string){
     const checkUser = await UserRepo.findOne({ email: email  });
     if (!checkUser) {
-        return null;
+        return {
+            message: "User not found",
+            status: 404,
+            accessToken: null
+        }
     }
 
     const checkPassword = bcrypt.compareSync(password, checkUser.password);
     if (!checkPassword) {
-        return null;
+        return {
+            message: "Wrong password",
+            status: 401,
+            accessToken: null
+        }
     }
 
     const checkRole = await RoleRepo.findById({ _id: checkUser.roleId });
     if (!checkRole) {
-        return null;
+        return {
+            message: "Role not found",
+            status: 404,
+            accessToken: null
+        }
     }
 
     const payload = {
         email: checkUser.email,
-        role: checkRole.name
+        role: checkRole.name,
+        permissions: checkRole.permissions
     };
 
     const accessToken = jwt.sign(payload, process.env.JWT_SECRET as string, { 

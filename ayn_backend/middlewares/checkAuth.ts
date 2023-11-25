@@ -18,7 +18,7 @@ export function checkAuth(
       token,
       process.env.JWT_SECRET as string
     ) as DecodedUser;
-    req.decoded = decoded;
+    req.decodedUser = decoded;
     next();
   } catch (error) {
     next(ApiError.forbidden("Invalid token"));

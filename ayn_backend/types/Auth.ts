@@ -1,6 +1,6 @@
 import { JwtPayload } from "jsonwebtoken";
-
 import { Request } from "express";
+
 import { Role } from "../utils/role";
 
 export interface DecodedUser extends JwtPayload {
@@ -9,7 +9,7 @@ export interface DecodedUser extends JwtPayload {
 }
 
 export interface WithAuthRequest extends Request {
-  decoded?: DecodedUser;
+  decodedUser?: DecodedUser;
 }
 
 export type User = {
