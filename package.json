@@ -46,6 +46,7 @@
     "@types/jsonwebtoken": "^9.0.5",
     "concurrently": "^8.2.2",
     "nodemon": "^2.0.22",
+    "sass": "^1.70.0",
     "tsx": "^3.14.0"
   }
 }

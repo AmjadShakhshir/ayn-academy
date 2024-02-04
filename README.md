@@ -1,4 +1,4 @@
-# Ayn-Academy
+# Ayn-Academy light version
 
 This is Ayn-Academy website offering courses in many topics especially in 
 humanities and self development.

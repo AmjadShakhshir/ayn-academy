@@ -15,6 +15,7 @@ import people from '../assets/people.png';
 import possibility from '../assets/possibility.png';
 import shopify from '../assets/shopify.png';
 import slack from '../assets/slack.png';
+import group_people from '../assets/group_people.png';
 
 const images = {
     ai,
@@ -33,7 +34,8 @@ const images = {
     people,
     possibility,
     shopify,
-    slack
+    slack,
+    group_people
 };
 
 export default images;

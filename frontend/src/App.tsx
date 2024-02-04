@@ -6,6 +6,7 @@ import Register from "./app/pages/Register";
 import Home from "./app/pages/Home";
 import ErrorPage from "./app/pages/ErrorPage";
 import Root from "./app/pages/Root";
+import Who from './app/pages/who';
 
 function App() {  
   const router = createBrowserRouter([
@@ -29,6 +30,10 @@ function App() {
           path: '/register',
           element: <Register />
         },
+        {
+          path: '/who',
+          element: <Who />
+        }
       ]
     },
       {
