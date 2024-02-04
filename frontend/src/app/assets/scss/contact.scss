@@ -1,0 +1,31 @@
+.contact-form {
+    display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 20px;
+	padding: 20px;
+	margin: 50px;
+    height: 55vh;
+
+    .contact-content {
+        display: flex;
+        flex-direction: column;
+        text-align: right;
+        gap: 20px;
+        width: 50%;
+        background-color: #f5e2d7;
+        margin: 0 5%;
+        padding: 80px 50px;
+        border-radius: 50px;
+    }
+
+    .contact-btn {
+        background-color: #265e76;
+        
+        &:hover {   
+            background-color: #52c3f3;
+            color: white;
+        }
+    }
+
+}

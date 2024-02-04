@@ -27,7 +27,7 @@ type PageType = {
 const theme = createTheme({
     palette: {
         mode: 'light',
-        primary: { main: '#a5d6a7' },
+        primary: { main: '#ecfcf0 ' },
         secondary: { main: '#ffcc80' },
         warning: { main: '#cc8a65' },
     },
@@ -58,7 +58,7 @@ function Navbar() {
 
     const renderButton = (page: PageType) => (
         <Button key={page.name} onClick={handleCloseNavMenu} sx={{ my: 2, fontFamily: 'sans-serif', fontWeight: 700, color: 'white', display: 'block', fontSize: '1rem' }}>
-            <Link to={page.path}>{page.name}</Link>
+            <Link style={{ color: 'black' }} to={page.path}>{page.name}</Link>
         </Button>
     );
 
@@ -92,8 +92,8 @@ function Navbar() {
                                 <Button variant='contained' size='medium' color='secondary' sx={{ mx: '10px' }} onClick={onLogout}>تسجيل الخروج</Button>
                             ) : (
                                 <>
-                                    <Button variant='contained' size='medium' color='secondary' sx={{ mx: '10px', display: { xs: 'none', md: 'block' } }}><Link to="/login">تسجيل الدخول</Link></Button>
-                                    <Button variant='contained' size='medium' sx={{ display: { xs: 'none', md: 'block' }}} color='warning'><Link to="/register">انضم إلينا</Link></Button>
+                                    <Button variant='contained' size='medium' color='secondary' sx={{ mx: '10px', display: { xs: 'none', md: 'block' } }}><Link style={{color: 'black'}} to="/login">تسجيل الدخول</Link></Button>
+                                    <Button variant='contained' size='medium' sx={{ display: { xs: 'none', md: 'block' }}} color='warning'><Link to="/register" style={{color: 'black'}}>انضم إلينا</Link></Button>
                                 </>
                             )}
                         </Box>

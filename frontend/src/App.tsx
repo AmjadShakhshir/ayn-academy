@@ -7,6 +7,7 @@ import Home from "./app/pages/Home";
 import ErrorPage from "./app/pages/ErrorPage";
 import Root from "./app/pages/Root";
 import Who from './app/pages/who';
+import Contact from './app/pages/Contact';
 
 function App() {  
   const router = createBrowserRouter([
@@ -19,20 +20,24 @@ function App() {
           element: <Home />
         },
         {
-          path: '/dashboard',
+          path: 'dashboard',
           element: <Dashboard />
         },
         {
-          path: '/login',
+          path: 'login',
           element: <Login />
         },
         {
-          path: '/register',
+          path: 'register',
           element: <Register />
         },
         {
-          path: '/who',
+          path: 'who',
           element: <Who />
+        },
+        {
+          path: 'contact',
+          element: <Contact />
         }
       ]
     },
