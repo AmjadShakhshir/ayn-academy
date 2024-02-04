@@ -1,0 +1,29 @@
+$background-color_1: rgba(250,204,128, .2);
+
+.who-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 20px;
+	padding: 20px;
+	margin: 70px;
+    
+    .who-content {
+        display: flex;
+        flex-direction: column;
+        text-align: right;
+        gap: 20px;
+        width: 50%;
+        background-color: $background-color_1;
+        margin: 0 5%;
+        padding: 200px 50px;
+        border-radius: 50px;
+    }
+    .who-img {
+        width: 550px;
+        height: auto;
+        max-width: 80%;
+        display: block;
+        margin: 0 auto;
+    }
+}

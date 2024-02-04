@@ -5,25 +5,8 @@ import './who.scss';
 
 const who = () => {
     return (
-        <Box component='div' sx={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            gap: '20px',
-            padding: '20px',
-            marginY: '70px',
-        }}>
-            <Box sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                textAlign: 'right',
-                gap: '20px',
-                width: '50%',
-                backgroundColor: 'rgba(250,204,128, .2)',
-                m: '0 5%',
-                padding: '200px 50px',
-                borderRadius: '50px',
-            }}>
+        <Box component='div' className='who-container'>
+            <Box className='who-content'>
                 <Typography variant='h3'>من نحن ؟</Typography>
                 <Typography variant='body1'>
                     أكاديمية عين واحة متجددة تحتوي العديد من الدروس في مجالات متنوعة، من التطور الذاتي، لعلم النفس، لتكنولوجيا، والعديد من المجالات الأخرى الضرورية لمواكبة آخر ما توصل إليه العلم الحديث.

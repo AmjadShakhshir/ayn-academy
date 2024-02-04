@@ -12,11 +12,10 @@ import { useState } from 'react';
 
 const pages = [
     { name: 'الرئيسية', path: '/' },
-    { name: 'من نحن ؟', path: '/about' },
+    { name: 'من نحن ؟', path: '/who' },
     { name: 'الدروس', path: '/courses' },
     { name: 'المدونة', path: '/blog' },
     { name: 'المنتدى', path: '/forum' },
-    { name: 'المساعدة', path: '/help' },
     { name: 'اتصل بنا', path: '/contact' },
 ];
 
