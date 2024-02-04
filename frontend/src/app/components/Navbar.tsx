@@ -3,7 +3,6 @@ import { AppBar, Box, Toolbar, IconButton, Typography, Menu, Button, MenuItem } 
 import { Link } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import { images } from '../constants';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { logout, reset } from '../../features/auth/authService';
 import { useNavigate } from 'react-router-dom';
 import useAppDispatch from '../hooks/useAppDispatch';
@@ -23,18 +22,6 @@ type PageType = {
     name: string;
     path: string;
 };
-
-const theme = createTheme({
-    palette: {
-        mode: 'light',
-        primary: { main: '#ecfcf0 ' },
-        secondary: { main: '#ffcc80' },
-        warning: { main: '#cc8a65' },
-    },
-    breakpoints: {
-        values: { xs: 0, sm: 500, md: 668, lg: 992, xl: 1336 },
-    },
-});
 
 function Navbar() {
     const dispatch = useAppDispatch();
@@ -63,13 +50,13 @@ function Navbar() {
     );
 
     return (
-        <ThemeProvider theme={theme}>
             <AppBar position="static">
                     <Toolbar disableGutters sx={{
                         display: 'flex',
                         justifyContent: 'space-between',
                         alignItems: 'center',
                         padding: '0 5%',
+                        bgcolor: '#ecfcf0'
                     }}>
                         <Box sx={{ flexGrow: 0, pl:'20px' }}>
                             <Link to="/">
@@ -89,17 +76,16 @@ function Navbar() {
                         </Box>
                         <Box sx={{ flexGrow: 0, mx:'10px', display: 'flex' }}>
                             {currentUser ? (
-                                <Button variant='contained' size='medium' color='secondary' sx={{ mx: '10px' }} onClick={onLogout}>تسجيل الخروج</Button>
+                                <Button variant='contained' size='medium'  sx={{ mx: '10px', color:'#ffcc80' }} onClick={onLogout}>تسجيل الخروج</Button>
                             ) : (
                                 <>
-                                    <Button variant='contained' size='medium' color='secondary' sx={{ mx: '10px', display: { xs: 'none', md: 'block' } }}><Link style={{color: 'black'}} to="/login">تسجيل الدخول</Link></Button>
-                                    <Button variant='contained' size='medium' sx={{ display: { xs: 'none', md: 'block' }}} color='warning'><Link to="/register" style={{color: 'black'}}>انضم إلينا</Link></Button>
+                                    <Button variant='contained' size='medium'  sx={{ mx: '10px', display: { xs: 'none', md: 'block' }, backgroundColor:'#ffcc80' }}><Link style={{color: 'black'}} to="/login">تسجيل الدخول</Link></Button>
+                                    <Button variant='contained' size='medium' sx={{ display: { xs: 'none', md: 'block' }, backgroundColor:'#cc8a65'}} ><Link to="/register" style={{color: 'black'}}>انضم إلينا</Link></Button>
                                 </>
                             )}
                         </Box>
                     </Toolbar>
             </AppBar>
-        </ThemeProvider>
     );
 }
 

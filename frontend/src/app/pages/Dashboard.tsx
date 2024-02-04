@@ -58,8 +58,8 @@ const Dashboard = () => {
       <Box component="section">
         { courses.length > 0 ? (
           <Box component="section">
-            { courses.map(() => // you should pass courses to map it in the CourseItem component
-              <CourseItem  />
+            { courses.map((course, index) => // you should pass courses to map it in the CourseItem component
+              <CourseItem key={index} course={course}  />
               )}
           </Box>
         ) : (

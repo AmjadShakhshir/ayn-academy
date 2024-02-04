@@ -8,13 +8,15 @@ import Footer from '../components/Footer';
 
 const Root = () => {
     return (
-        <Box>
+        <>
             <CssBaseline />
-            <Header />  
-            <Outlet />
-            <Footer />
-            <ToastContainer />
-        </Box>
+            <Box>
+                <Header />  
+                <Outlet />
+                <Footer />
+                <ToastContainer />
+            </Box>
+        </>
 )}
 
 export default Root;

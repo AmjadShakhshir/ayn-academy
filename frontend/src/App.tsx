@@ -8,6 +8,7 @@ import ErrorPage from "./app/pages/ErrorPage";
 import Root from "./app/pages/Root";
 import Who from './app/pages/who';
 import Contact from './app/pages/Contact';
+import CoursesPage from './features/courses/pages/CoursesPage';
 
 function App() {  
   const router = createBrowserRouter([
@@ -38,6 +39,10 @@ function App() {
         {
           path: 'contact',
           element: <Contact />
+        },
+        {
+          path: 'courses',
+          element: <CoursesPage />
         },
         {
           path: '*',

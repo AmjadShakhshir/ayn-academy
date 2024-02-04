@@ -1,37 +1,35 @@
-import { Box, Button, Typography } from "@mui/material"
-import useAppSelector from "../../../app/hooks/useAppSelector"
-import { deleteCourse } from "../courseService"
-import useAppDispatch from "../../../app/hooks/useAppDispatch"
+import { Grid, Card, CardMedia, CardContent, Typography, CardActions, Button } from '@mui/material'
 
-const CourseItem = () => {
-    const course = useAppSelector((state) => state.courses.courses.find((course) => course._id === '615d2e3f6b3e9e5b6d4f0b2c')!)
-    const dispatch = useAppDispatch()
+import { Course } from '../types/Course'
 
+const CourseItem = ({course, key}: {course: Course, key: number}) => {
     return (
-        <Box component= "section"
-            m={2}
-            height={'100px'}
-            width={'25%'}
-            sx={{
-                bgcolor: '#f8f8f8',
-                borderRadius: '5px',
-                boxShadow: '0 0 5px 2px rgba(0, 0, 0, 0.1)',
-                padding: '10px',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-            }}>   
-            {/* <Box component="section">
-                { new Date(course.createdAt).toLocaleString('en-US')}
-            </Box> */}
-            <Typography variant="h4">
-                <Button onClick={() => {
-                    dispatch(deleteCourse(course._id))}}>
-                    X
-                </Button>
-                { course.title }
-            </Typography>
-        </Box>
+        <Grid item key={key} xs={12} sm={6} md={4}>
+            <Card
+                sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+            >
+            <CardMedia
+                component="div"
+                sx={{
+                // 16:9
+                pt: '56.25%',
+                }}
+                image="https://source.unsplash.com/random?wallpapers"
+            />
+            <CardContent sx={{ flexGrow: 1 }}>
+                <Typography gutterBottom variant="h5" component="h2">
+                    {course.title}
+                </Typography>
+                <Typography>
+                    {course.description}
+                </Typography>
+            </CardContent>
+            <CardActions>
+                <Button size="small">View</Button>
+                <Button size="small">Edit</Button>
+            </CardActions>
+            </Card>
+        </Grid>
     )
 }
 
