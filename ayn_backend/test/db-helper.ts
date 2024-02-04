@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 
 async function connect(){
     const mongd = await MongoMemoryServer.create();
-    const uri = mongd.getUri();
+    const uri = await mongd.getUri();
 
     await mongoose.connect(uri);
 
@@ -26,3 +26,8 @@ async function connect(){
 }
 
 export default connect;
+
+export type MongoHelper = {
+    closeDatabase: () => Promise<void>;
+    clearDatabase: () => Promise<void>;
+};

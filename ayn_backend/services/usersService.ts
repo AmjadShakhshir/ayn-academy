@@ -87,7 +87,8 @@ async function logIn (email: string, password: string){
     const accessToken = jwt.sign(payload, process.env.JWT_SECRET as string, { 
         expiresIn: "1h"
     });
-    return accessToken;
+    const loggedInUser = {...payload, accessToken}
+    return loggedInUser;
 }
 
 export default {

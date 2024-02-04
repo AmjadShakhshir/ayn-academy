@@ -9,7 +9,7 @@ export function deleteUser(
     next: NextFunction
     ) {
         const id = req.params.userId;
-        const usersData = usersService.getSingleUser(id);
+        const usersData = usersService.findOne(id);
         if (!usersData) {
             next(ApiError.resourceNotFound("User can't be deleted"));
             return;
