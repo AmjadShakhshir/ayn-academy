@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 
 import { CourseReducerState } from './types/CourseReducerState';
 import { AddCourseRequest, Course, updateCourseRequest } from './types/Course';
@@ -89,6 +89,14 @@ export const courseSlice = createSlice({
     initialState,
     reducers: {
         reset: () => initialState,
+        sortCourses: (state, action: PayloadAction<"asc" | "desc">) => {
+            const sortType = action.payload;
+            if (sortType === 'asc') {
+                state.courses.sort();
+            } else if (sortType === 'desc') {
+                state.courses.sort().reverse();
+            }
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -153,5 +161,5 @@ export const courseSlice = createSlice({
     },
 });
 
-export const { reset } = courseSlice.actions;
+export const { reset, sortCourses } = courseSlice.actions;
 export default courseSlice.reducer;

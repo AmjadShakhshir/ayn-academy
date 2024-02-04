@@ -1,14 +1,11 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import { SelectChangeEvent } from '@mui/material/Select';
-import Breadcrumbs from '@mui/material/Breadcrumbs';
-import Link from '@mui/material/Link';
 import MenuList from '@mui/material/MenuList';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import Select from '@mui/material/Select';
-import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
@@ -16,50 +13,43 @@ import GridViewIcon from '@mui/icons-material/GridView';
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 
 import '../../../app/assets/scss/courses-page.scss'
-import CourseItem from '../components/CourseItem';
 import { courseData } from '../data/courseData';
-
-const topics = ['الكل','علم نفس', 'تكنولوجيا', 'أدب'];
+import CoursesHeader from '../components/CoursesHeader';
+import { Menu } from '../components/Menu';
+import { Courses } from '../components/Courses';
 
 const CoursesPage = () =>{
-    const [categories, setCategories] = React.useState('');
+    const [categories, setCategories] = useState('');
+    const [topicSort, setTopicSort] = useState('الكل');
+    const [sortedCourses, setSortedCourses] = useState([...courseData]);
+
+    useEffect(() => {
+        if (categories === 'asc') {
+            setSortedCourses([...courseData].sort());
+        } else if (categories === 'desc'){
+            setSortedCourses([...courseData].sort().reverse());
+        } else {
+            setSortedCourses([...courseData]);
+        }
+    }, [categories]);
+
+    useEffect(() => {
+        if (topicSort === 'الكل') {
+            setSortedCourses([...courseData]);
+        } else {
+            setSortedCourses([...courseData].filter(course => course.category === topicSort));
+        }
+    }, [topicSort]);
 
     const handleChange = (event: SelectChangeEvent) => {
-        setCategories(event.target.value as string);
-    };
+        setCategories(event.target.value);
+}   
+
     return (
         <Stack component="main" sx={{
-            bgcolor: 'white'
+            backgroundColor: 'lightgray'
         }}>
-            <Stack
-            component="div"
-            className='courses-header'
-            >
-                <Container maxWidth="sm" className='courses-header-content'>
-                    <Typography
-                        component="h1"
-                        variant="h2"
-                        align="center"
-                        color="white"
-                        gutterBottom
-                        >
-                        دروس
-                    </Typography>
-                    <Breadcrumbs aria-label="breadcrumb">
-                        <Link className='links' underline="hover" color="white" href="/">
-                            الرئيسية
-                        </Link>
-                        <Link
-                            className='links'
-                            underline="hover"
-                            color="white"
-                            href="/courses"
-                        >
-                            الدروس
-                        </Link>
-                    </Breadcrumbs>
-                </Container>
-            </Stack>
+            <CoursesHeader />
 
             <Stack component="div" className='courses-content'>
                 <Container maxWidth="md" className='courses-content-container'>
@@ -68,13 +58,13 @@ const CoursesPage = () =>{
                             <ListItemIcon>
                                 <GridViewIcon fontSize="small" />
                             </ListItemIcon>
-                            <Typography variant="inherit">عرض شبكي</Typography>
+                            <Typography variant="inherit" fontSize={20}>عرض شبكي</Typography>
                         </MenuItem>
                         <MenuItem>
                             <ListItemIcon>
                                 <FormatListBulletedIcon fontSize="small" />
                             </ListItemIcon>
-                            <Typography variant="inherit">عرض قائمة</Typography>
+                            <Typography variant="inherit" fontSize={20}>عرض قائمة</Typography>
                         </MenuItem>
                     </MenuList> 
 
@@ -87,34 +77,14 @@ const CoursesPage = () =>{
                             label="Age"
                             onChange={handleChange}
                         >
-                            <MenuItem value={10}>الاحدث</MenuItem>
-                            <MenuItem value={20}>الأقدم</MenuItem>
-                            <MenuItem value={30}>الأرخص</MenuItem>
+                            <MenuItem value={'asc'}>تصاعديا</MenuItem>
+                            <MenuItem value={'desc'}>تنازليا</MenuItem>
                         </Select>
                     </FormControl>
                 </Container>
             </Stack>
-            <Stack component={'div'}>
-                <MenuList sx={{
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                    justifyContent: 'center',
-                    borderRadius: '10px',
-                    gap: 2,
-                    pt: 2
-                }}>
-                    {topics.map((topic, index) => (
-                        <MenuItem key={index}>{topic}</MenuItem>
-                    ))}
-                </MenuList>
-            </Stack>
-            <Container sx={{ py: 8 }} maxWidth="md">
-            <Grid container spacing={4}>
-                {courseData.map((course, index) => (
-                    <CourseItem key={index} course={course} />
-                ))}
-            </Grid>
-            </Container>
+            <Menu setTopicSort={setTopicSort} />
+            <Courses sortedCourses={sortedCourses} />
         </Stack>
     );
 }

@@ -9,6 +9,7 @@ import Root from "./app/pages/Root";
 import Who from './app/pages/who';
 import Contact from './app/pages/Contact';
 import CoursesPage from './features/courses/pages/CoursesPage';
+import Course from './features/courses/pages/CoursePage';
 
 function App() {  
   const router = createBrowserRouter([
@@ -43,6 +44,10 @@ function App() {
         {
           path: 'courses',
           element: <CoursesPage />
+        },
+        {
+          path: 'courses/:courseId',
+          element: <Course />
         },
         {
           path: '*',
