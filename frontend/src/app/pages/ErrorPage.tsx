@@ -1,6 +1,8 @@
 import { Box, Button, Typography } from '@mui/material'
 import KeyboardDoubleArrowLeftIcon  from "@mui/icons-material/KeyboardDoubleArrowLeft"
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+
+import '../assets/scss/errorPage.scss';
 
 const ErrorPage = () => {
   const navigate = useNavigate();
@@ -9,19 +11,17 @@ const ErrorPage = () => {
     navigate("/", { replace: true });
   };
   return (
-    <Box m="30px 0">
+    <Box className='error'>
+      <img className='error-img' src="https://cdn.pixabay.com/photo/2017/02/12/21/29/false-2061131_1280.png" alt="error" />
       <Typography>
-        404 Not Found 
-        <br />
-        The page you are looking for might have been removed or is temporarily
-        unavailable. Please check the URL and try again.
+        الصفحة التي تبحث عنها قد تمت إزالتها أو غير متاحة مؤقتًا. يرجى التحقق من عنوان URL والمحاولة مرة أخرى.
       </Typography>
       <Button
         startIcon={<KeyboardDoubleArrowLeftIcon />}
         onClick={handleClick}
         sx={{ display: "flex", margin: "0 auto" }}
       >
-        Go back
+        للعودة للصفحة الرئيسية
       </Button>
     </Box>
   )

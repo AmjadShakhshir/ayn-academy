@@ -38,13 +38,13 @@ function App() {
         {
           path: 'contact',
           element: <Contact />
+        },
+        {
+          path: '*',
+          element: <ErrorPage />
         }
       ]
     },
-      {
-        path: '*',
-        element: <ErrorPage />
-      }
   ]);
   return (
     <RouterProvider router={router} />
