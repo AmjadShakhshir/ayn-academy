@@ -38,13 +38,13 @@ function Navbar() {
     };
 
     const renderMenuItem = (page: PageType) => (
-        <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+        <MenuItem key={page.name} onClick={() => handleCloseNavMenu}>
             <Typography textAlign="center">{page.name}</Typography>
         </MenuItem>
     );
 
     const renderButton = (page: PageType) => (
-        <Button key={page.name} onClick={handleCloseNavMenu} sx={{ my: 2, fontFamily: 'sans-serif', fontWeight: 700, color: 'white', display: 'block', fontSize: '1rem' }}>
+        <Button key={page.name} onClick={()=> handleCloseNavMenu} sx={{ my: 2, fontFamily: 'sans-serif', fontWeight: 700, color: 'white', display: 'block', fontSize: '1rem' }}>
             <Link style={{ color: 'black' }} to={page.path}>{page.name}</Link>
         </Button>
     );

@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import Brands from "../containers/Brands";
 import Why from "../containers/Why";
+import Future from "../containers/Future";
+import CoursesFeatures from "../containers/CoursesFeatures";
 
 const Home = () => {
     const [ email, setEmail ] = useState('');
@@ -50,7 +52,7 @@ const Home = () => {
                         />
                         <FormControl>
                             <Button
-                            onClick={onSubmit}
+                            onClick={()=> onSubmit}
                             variant="contained"
                             color="primary"
                             sx={{ p: 2 }}> 
@@ -90,7 +92,9 @@ const Home = () => {
             </Grid>
         </Box>
         <Brands />
+        <CoursesFeatures />
         <Why />
+        <Future />
     </>
   )
 }

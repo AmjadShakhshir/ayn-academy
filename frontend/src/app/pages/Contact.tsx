@@ -30,7 +30,7 @@ const Contact = () => {
                 </FormControl>
             </Box>
             <Box>
-                <img src='https://via.placeholder.com/150' alt='placeholder' />
+                <img src='https://i.pinimg.com/564x/76/cd/fe/76cdfe8dae763ecdf14c8ec1f32fc905.jpg' alt='placeholder' />
             </Box>
         </Box>
     )
