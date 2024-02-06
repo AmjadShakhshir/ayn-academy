@@ -14,31 +14,31 @@ const CourseSide = ({ course}: { course: Course}) => {
         gap: '20px',
     }}>
         <Typography variant="h5" component="h2">
-            Course details
+            تفاصيل الدورة
         </Typography>
         <Typography variant="body1" component="p">
             {course.description}
         </Typography>
         <Divider orientation="horizontal" variant="middle" flexItem />
         <Typography variant="h6" component="h2">
-            Duration
+            المدة
         </Typography>
         <Typography variant="body1" component="p">
-            6 weeks
+            ٦ أسابيع
         </Typography>
         <Divider  orientation="horizontal" variant="middle" flexItem />
         <Typography variant="h6" component="h2">
-            Price
+            السعر
         </Typography>
         <Typography variant="body1" component="p">
             {course.price} €
         </Typography>
         <Divider  orientation="horizontal" variant="middle" flexItem  />
         <Typography variant="h6" component="h2">
-            Enroll now
+            سجل الآن
         </Typography>
         <Button variant="contained" color="primary">
-            Enroll
+            سجل الآن
         </Button>
     </Box>
   )

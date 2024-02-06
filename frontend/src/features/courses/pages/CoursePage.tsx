@@ -48,13 +48,13 @@ const Course = () => {
                                 gap: '10px',
                             }}>
                                 <Typography variant="h3" component="h2">
-                                    Reviews
+                                    تقييمات الطلاب
                                 </Typography>
                                 <Typography variant="body1" component="p">
-                                    There's no review yet
+                                    لا يوجد تقييمات حتى الآن
                                 </Typography>
                                 <Button variant="contained" color="primary">
-                                    Write a review
+                                    أضف تقييمك
                                 </Button>
                             </Box>
                         </Grid>
@@ -69,7 +69,7 @@ const Course = () => {
                     </Grid>
                     </>
                 ) : (
-                <p>Loading course...</p>
+                <p>جاري التحميل ...</p>
             )}
         </Box>
     )
