@@ -43,7 +43,7 @@ const CoursesPage = () =>{
 
     const handleChange = (event: SelectChangeEvent) => {
         setCategories(event.target.value);
-}   
+    }   
 
     return (
         <Stack component="main" sx={{
@@ -51,7 +51,7 @@ const CoursesPage = () =>{
         }}>
             <CoursesHeader />
 
-            <Stack component="div" className='courses-content'>
+            <Stack component="div" className='courses-content' >
                 <Container maxWidth="md" className='courses-content-container'>
                     <MenuList className='courses-content-list'>
                         <MenuItem>
@@ -84,7 +84,7 @@ const CoursesPage = () =>{
                 </Container>
             </Stack>
             <Menu setTopicSort={setTopicSort} />
-            <Courses sortedCourses={sortedCourses} />
+            <Courses sortedCourses={sortedCourses} /> 
         </Stack>
     );
 }

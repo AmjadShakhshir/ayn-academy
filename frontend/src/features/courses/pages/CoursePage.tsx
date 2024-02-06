@@ -1,7 +1,11 @@
-import { Avatar, Box, Rating, Typography } from '@mui/material';
+import { Box, Button, Grid, Typography } from '@mui/material';
 import { useParams } from 'react-router-dom';
 
 import { courseData } from '../data/courseData';
+import CourseBanner from '../components/CourseBanner';
+import CourseDetails from '../components/CourseDetails';
+import CourseInstructorDetails from '../components/CourseInstructorDetails';
+import CourseSide from '../components/CourseSide';
 
 const Course = () => {
     const params = useParams();
@@ -11,91 +15,62 @@ const Course = () => {
     return (
         <Box component="main" sx={{
             backgroundColor: 'lightgray',
+            margin: '0 auto',
             padding: '30px 0 70px',
         }}>
-            <Box component="div" sx={{
-                display: 'flex',
-                marginX: '10%',
-                padding: '20px',
-                height: '300px'
-            }}>
-                <img src={course?.image} alt={course?.title} style={{width: '300px'}} />
-                <Box component="div" sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    gap: '5px',
-                    padding: '20px',
-                }}>
-                    <Typography variant="h3" component="h1">
-                        {course?.title}
-                    </Typography>
-                    <Typography variant="body2" component="h5">
-                        بواسطة {course?.instructor}
-                    </Typography>
-                    <Typography variant="h5" component="h4">
-                        {course?.description}
-                    </Typography>
-                    <Rating name="half-rating" defaultValue={3.5} />
-                        4.5 (23)
-                </Box>
-            </Box>
-
-            <Box component="div" sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                marginX: '10%',
-                padding: '50px',
-                gap: '20px',
-                backgroundColor: 'white'
-            }}>
-                <Box component="div" sx={{
-                    gap: '10px',
-                }}>
-                    <Typography variant="h5" component="h2">
-                        ماذا ستتعلم
-                    </Typography>
-                    {course?.learn.map((learning, index) => (
-                        <Typography key={index} variant="body1" component="p">
-                           * {learning}
-                        </Typography>
-                    ))}
-                </Box>
-                <Box component="div" sx={{
-                    gap: '10px',
-                }}>
-                    <Typography variant="h5" component="h2">
-                        المتطلبات
-                    </Typography>
-                    {course?.requirements.map((requirement, index) => (
-                        <Typography key={index} variant="body1" component="p">
-                           * {requirement}
-                        </Typography>
-                    ))}
-                </Box>
-            </Box>
-
-            <Box component="div" sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                marginX: '10%',
-                padding: '50px',
-                gap: '20px',
-                backgroundColor: 'white'
-            }}>
-                <Typography variant="h5" component="h2">
-                    المدرب
-                </Typography>
-                <Avatar alt={course?.instructor} src={course?.avatar} sx={{
-                    width: '100px',
-                    height: '100px',
-                
-                }}/>
-                <Typography variant="body1" component="p">
-                    {course?.instructor}
-                </Typography>
-            </Box>
+            {course ? (
+                <>
+                    <CourseBanner course={course} />
+                    <Grid container spacing={1}>
+                        <Grid item xs={12} md={7} sx={{
+                            borderRadius: '20px',
+                            display: 'flex',
+                            margin: '15px 5% 15px 0',
+                            backgroundColor: 'white',
+                            justifyContent: 'space-between',
+                        }}>
+                            <Box component="div" sx={{
+                                padding: '20px',
+                                borderRadius: '20px',
+                                width: '70%',
+                            }}>
+                                <CourseDetails course={course} />
+                                <CourseInstructorDetails course={course} />
+                            </Box>
+                            <Box component="div" sx={{
+                                padding: '20px',
+                                borderRadius: '20px',
+                                marginTop: '20px',
+                                width: '30%',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                gap: '10px',
+                            }}>
+                                <Typography variant="h3" component="h2">
+                                    Reviews
+                                </Typography>
+                                <Typography variant="body1" component="p">
+                                    There's no review yet
+                                </Typography>
+                                <Button variant="contained" color="primary">
+                                    Write a review
+                                </Button>
+                            </Box>
+                        </Grid>
+                        <Grid item xs={12} md={2} sx={{
+                            borderRadius: '20px',
+                            margin: '15px 1% 15px 0',
+                            backgroundColor: 'white',
+                        
+                        }}>
+                            <CourseSide course={course} />
+                        </Grid>
+                    </Grid>
+                    </>
+                ) : (
+                <p>Loading course...</p>
+            )}
         </Box>
     )
 }

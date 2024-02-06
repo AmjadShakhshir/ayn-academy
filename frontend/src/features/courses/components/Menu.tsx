@@ -1,6 +1,6 @@
 import { MenuList, MenuItem } from "@mui/material";
 
-const topics = ['الكل','علم نفس', 'تكنولوجيا', 'أدب'];
+const topics = ['الكل','علم النفس', 'تكنولوجيا', 'الأدب'];
 
 export const Menu = ({ setTopicSort }: { setTopicSort: (topic: string) => void}) => (
     <MenuList sx={{
