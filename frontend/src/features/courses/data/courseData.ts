@@ -213,4 +213,92 @@ export const courseData = [
             "يجب عليك معرفة أساسيات علم الحاسوب",
             "يجب عليك معرفة اساسيات تطوير البرمجيات"
         ],
-    }];
+    },
+    {
+        _id: "10",
+        title: "مدخل إلى علم النفس",
+        description: "مدخل إلى علم النفس",
+        published: true,
+        instructor: "John Doe",
+        avatar: "https://t3.gstatic.com/licensed-image?q=tbn:ANd9GcRCBvAArIL5YtE3B1x025HSjUx6csGnp9D4HfaGkMMTN6fip9Quek2AGik-vd6dYou3",
+        userId: "1",
+        image: "https://cdn.salla.sa/AGDnZ/9Axe4JUr3OvtkHMgJ6GznZDJP8MKR0B0Wc8kUeuk.png",
+        category: "علم النفس",
+        price: 100,
+        learn: [
+            "تعلم الـ علم النفس الإكلينيكي",
+            "تعلم الـ علم النفس الإجتماعي",
+            "تعلم الـ علم النفس الإدراكي",
+            "تعلم الـ علم النفس الإنساني",
+            "تعلم الـ علم النفس الإنمائي"
+        ],
+        requirements: [
+            "يجب عليك معرفة أساسيات علم النفس"
+        ],
+    },
+    {
+        _id: "11",
+        title: "مدخل إلى علم الإجتماع",
+        description: "مدخل إلى علم الإجتماع",
+        published: true,
+        instructor: "John Doe",
+        avatar: "https://t3.gstatic.com/licensed-image?q=tbn:ANd9GcRCBvAArIL5YtE3B1x025HSjUx6csGnp9D4HfaGkMMTN6fip9Quek2AGik-vd6dYou3",
+        userId: "1",
+        image: "https://www.almrsal.com/wp-content/uploads/2021/07/1-1-1.jpg",
+        category: "علم الإجتماع",
+        price: 100,
+        learn: [
+            "تعلم الـ علم الإجتماع الإكلينيكي",
+            "تعلم الـ علم الإجتماع الإجتماعي",
+            "تعلم الـ علم الإجتماع الإدراكي",
+            "تعلم الـ علم الإجتماع الإنساني",
+            "تعلم الـ علم الإجتماع الإنمائي"
+        ],
+        requirements: [
+            "يجب عليك معرفة أساسيات علم الإجتماع"
+        ],
+    },
+    {
+        _id: "12",
+        title: "شعر المتنبي",
+        description: "شعر المتنبي",
+        published: true,
+        instructor: "John Doe",
+        avatar: "https://t3.gstatic.com/licensed-image?q=tbn:ANd9GcRCBvAArIL5YtE3B1x025HSjUx6csGnp9D4HfaGkMMTN6fip9Quek2AGik-vd6dYou3",
+        userId: "1",
+        image: "https://www.almrsal.com/wp-content/uploads/2021/07/1-1-1.jpg",
+        category: "الأدب",
+        price: 100,
+        learn: [
+            "مقدمة في شعر المتنبي",
+            "المتنبي والحكمة",
+            "المتنبي والحب",
+            "المتنبي والحرب",
+            "المتنبي والعرب"
+        ],
+        requirements: [
+            "يجب عليك معرفة أساسيات الأدب"
+        ],
+    },
+    {
+        _id: "13",
+        title: "الأدب العربي",
+        description: "الأدب العربي",
+        published: true,
+        instructor: "John Doe",
+        avatar: "https://t3.gstatic.com/licensed-image?q=tbn:ANd9GcRCBvAArIL5YtE3B1x025HSjUx6csGnp9D4HfaGkMMTN6fip9Quek2AGik-vd6dYou3",
+        userId: "1",
+        image: "https://www.almrsal.com/wp-content/uploads/2021/07/1-1-1.jpg",
+        category: "الأدب",
+        price: 100,
+        learn: [
+            "مقدمة في الأدب العربي",
+            "الأدب العربي والحكمة",
+            "الأدب العربي والحب",
+            "الأدب العربي والحرب",
+            "الأدب العربي والعرب"
+        ],
+        requirements: [
+            "يجب عليك معرفة أساسيات الأدب"
+        ],
+}];
