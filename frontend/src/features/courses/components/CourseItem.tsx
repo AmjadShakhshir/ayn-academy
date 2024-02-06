@@ -3,9 +3,9 @@ import { Grid, Card, CardMedia, CardContent, Typography, Box, Avatar, Rating } f
 import { Course } from '../types/Course'
 import { Link } from 'react-router-dom'
 
-const CourseItem = ({course, key}: {course: Course, key: number}) => {
+const CourseItem = ({course}: {course: Course}) => {
     return (
-        <Grid item key={key} xs={12} sm={6} md={4}>
+        <Grid item key={course._id} xs={12} sm={6} md={4}>
             <Link to={`/courses/${course._id}`} style={{textDecoration: 'none'}}>
                 <Card
                     sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
