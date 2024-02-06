@@ -8,6 +8,9 @@ export type Course = {
     image: string,
     category: string,
     price: number,
+    avatar: string,
+    learn: string[],
+    requirements: string[],
 }
 
 export type AddCourseRequest = Omit<Course, '_id'>;
