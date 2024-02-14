@@ -2,8 +2,6 @@ import { Box, Button, Typography } from '@mui/material'
 import KeyboardDoubleArrowLeftIcon  from "@mui/icons-material/KeyboardDoubleArrowLeft"
 import { useNavigate } from 'react-router-dom';
 
-import '../assets/scss/errorPage.scss';
-
 const ErrorPage = () => {
   const navigate = useNavigate();
 

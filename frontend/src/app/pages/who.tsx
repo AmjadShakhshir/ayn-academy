@@ -1,7 +1,6 @@
 import { Box, Typography } from '@mui/material';
 
 import { images } from '../constants';
-import '../assets/scss/who.scss';
 
 const who = () => {
     return (

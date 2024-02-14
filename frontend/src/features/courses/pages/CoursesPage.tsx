@@ -12,7 +12,6 @@ import Container from '@mui/material/Container';
 import GridViewIcon from '@mui/icons-material/GridView';
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 
-import '../../../app/assets/scss/courses-page.scss'
 import { courseData } from '../data/courseData';
 import CoursesHeader from '../components/CoursesHeader';
 import { Menu } from '../components/Menu';

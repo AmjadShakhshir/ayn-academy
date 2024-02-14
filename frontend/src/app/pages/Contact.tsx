@@ -1,7 +1,5 @@
 import { Box, Typography, FormControl, Button, TextField } from "@mui/material";
 
-import '../assets/scss/contact.scss';
-
 const Contact = () => {
     return (
         <Box component='div' className="contact-form">
