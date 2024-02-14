@@ -1,0 +1,25 @@
+h1 {
+    font-weight: 800;
+    line-height: 1.1;
+    margin-top: 0;
+}
+
+p {
+    margin-top: 0;
+    font-weight: 500;
+}
+
+a, a:visited, a:active {
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.gradient-text {
+    background: var(--gradient-text);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+$fw-500: 500;
+$fw-700: 700;

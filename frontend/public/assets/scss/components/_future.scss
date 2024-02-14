@@ -1,0 +1,52 @@
+@use '../abstract' as abs;
+@use '../base' as base;
+
+.future {
+    display: grid;
+    padding: 6rem 8rem;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 20px; // add appropriate unit
+    grid-template-rows: auto;
+    grid-template-areas: "main main main main main main"
+    ". title1 title1 title1 title1 ."
+    ". text1 text1 text1 text1 ."
+    ". title2 title2 title2 title2 ."
+    ". text2 text2 text2 text2 ."
+    ". main1 main1 main1 main1 ."
+    ". title3 title3 title3 title3 ."
+    ". text3 text3 text3 text3 .";
+
+    &-main {
+        grid-area: main;
+        padding: 1rem;
+        @extend .gradient-text;
+    }
+
+    $items: title1 text1 title2 text2 main1 title3 text3;
+
+    @each $item in $items {
+        &-#{$item} {
+            grid-area: $item;
+            padding: 1rem;
+            @if $item == 'main1' {
+                @extend .gradient-text;
+            }
+            @if $item == 'title1' or $item == 'title2' or $item == 'title3' {
+                color: var(--color-white);
+                border-top: 5px solid #F49867;
+                width: 130px;
+                font-size: 0.5em;
+            }
+            @if $item == 'text1' or $item == 'text2' or $item == 'text3' {
+                color: var(--color-text);
+            }
+        }
+    }
+    
+    @include abs.mq('md') {
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-areas: "main main main main main title1 title1 text1 text1 text1 text1"
+                                "main main main main main title2 title2 text2 text2 text2 text2"
+                                "main1 main1 main1 main1 main1 title3 title3 text3 text3 text3 text3";
+    }
+}

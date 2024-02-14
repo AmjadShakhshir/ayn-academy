@@ -1,0 +1,36 @@
+@use '../base' as base;
+@use '../abstract' as abs;
+
+.header {
+    &-title {
+        @extend .gradient-text;
+        font-weight: 800;
+        font-size: 6em;
+        line-height: 7em;
+    }
+
+    &-subtitle {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 1em;
+        line-height: 2em;
+        color: var(--color-text);
+        margin-top: 0.5rem;
+    }
+
+    &-people {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        gap: 0.5rem;
+        align-items: center;
+        margin-top: 2rem;
+        color: var(--color-white);
+    }
+
+    @include abs.mq('md') {
+        &-people {
+            justify-content: flex-end;
+        }
+    }
+}

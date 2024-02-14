@@ -1,0 +1,26 @@
+@use '../base' as base;
+.nav {
+    &-logo {
+        width: 100px;
+        height: 50px;
+        padding-left: 1.5rem;
+    }
+
+    &-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: base.$fw-500;
+        padding: 0.5rem 1rem;
+        transition: all 0.3s ease;
+        cursor: pointer;
+
+        &:hover {
+            background: var(--color-btn);
+            border-radius: 5px;
+            padding: 0.5rem 2rem;
+        }
+    }
+
+
+}

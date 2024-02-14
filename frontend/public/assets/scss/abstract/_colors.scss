@@ -1,0 +1,45 @@
+:root {
+    --gradient-text: linear-gradient(89.97deg, #AE67FA 1.84%, #F49867 102.67%);
+    --gradient-bar: linear-gradient(103.22deg, #AE67FA -13.86%, #F49867 99.55%);
+
+    --color-bg: hsl(216, 71%, 5%);
+    --color-footer: #031B34;
+    --color-blog: #042c54;
+    --color-text: #81AFDD;
+    --color-subtext: #FF8A71;
+    --color-btn: #ff4820;
+    --color-white: #fff;
+    --color-btn-hover: #eda690;
+    --color-secondary-btn-hover: #6c5550;
+    --color-black: #000;
+}
+
+$gradient-bg: radial-gradient(circle at 25% 3%, rgba(4, 12, 24, 1) 0%, rgba(0, 40, 83, 1) 100%);
+
+.gradient-bg {
+    /* moz */
+    background: -moz-#{$gradient-bg};
+    
+    /* safari 5.1+,chrome 10+ */
+    background: -webkit-#{$gradient-bg};
+
+    /* opera 11.10+ */
+    background: -o-#{$gradient-bg};
+
+    /* ie 10+ */
+    background: -ms-#{$gradient-bg};
+
+    /* global 92%+ browsers support */
+    background: $gradient-bg;
+}
+
+.gradient__text {
+    background: var(--gradient-text);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.scale-up-center {
+    -webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}

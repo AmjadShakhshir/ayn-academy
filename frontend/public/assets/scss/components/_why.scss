@@ -1,0 +1,55 @@
+@use '../abstract' as abs;
+@use '../base' as base;
+
+.why {
+    padding: abs.$padding-section;
+    
+    &-container {
+        @extend .gradient-bg;
+        border-radius: 25px;
+        padding: 2rem 0;
+    }
+
+    &-span {
+        border-top: 5px solid #F49867;
+        width: 150px;
+        color: var(--color-white);
+        font-size: 1em;
+    }
+
+    &-span-1 {
+        @extend .why-span;
+        width: 80px;
+        padding-block: 0.5rem;
+    }
+
+    &-title {
+        @extend .gradient-text;
+        font-weight: 800;
+        font-size: 3em;
+        line-height: 4em;
+        margin-top: 1rem;
+    }
+
+    &-subtitle {
+        padding: 0 6rem;  
+        font-style: normal;
+        font-weight: normal;
+        font-size: 1em;
+        line-height: 2em;
+        color: var(--color-text);
+        margin-top: 0.5rem;
+    }
+
+    &-link {
+        @extend .gradient-text;
+        
+        &:hover {
+            color: var(--color-btn-hover);
+        }
+        
+        @include abs.mq('md') {
+            padding-inline: 5rem;
+        }
+    }
+}

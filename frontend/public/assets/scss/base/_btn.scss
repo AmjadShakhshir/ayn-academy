@@ -1,0 +1,32 @@
+%btn {
+    padding: 1rem 2rem;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 5px;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    @extend %btn;
+    background: var(--color-btn);
+    color: var(--color-white);
+
+    &:hover {
+        background: var(--color-btn-hover);
+    }
+}
+
+.btn-secondary {
+    @extend %btn;
+    background: inherit;
+    color: var(--color-white);
+
+    &:hover {
+        background: var(--color-secondary-btn-hover);
+    }
+}
