@@ -1,4 +1,3 @@
-import './Spinner.css'
 
 function Spinner() {
   return (
