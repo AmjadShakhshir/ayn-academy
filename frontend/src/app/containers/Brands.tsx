@@ -5,7 +5,7 @@ const Brands = () => {
   return (
     <Box component="section"
     sx={{ flexGrow: 1,
-      p: 5,
+      p: '6rem 0',
       bgcolor: 'black',
       display: 'flex',
       justifyContent: 'space-evenly',
