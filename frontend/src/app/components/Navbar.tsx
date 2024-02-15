@@ -12,8 +12,30 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { images } from '../constants';
+import { Link } from 'react-router-dom';
 
-const pages = ['الرئيسية', 'من نحن؟', 'المميزات', 'الفرص', 'الدروس', 'عن الدورة'];
+const pages = [{
+    name: 'الرئيسية',
+    path: '/',
+},{
+    name: 'من نحن ؟',
+    path: '/about',
+},{
+    name: 'الدروس',
+    path: '/courses',
+},{
+    name: 'المدونة',
+    path: '/blog',
+},{
+    name: 'المنتدى',
+    path: '/forum',
+},{
+    name: 'المساعدة',
+    path: '/help',
+},{
+    name: 'اتصل بنا',
+    path: '/contact',
+}];
 const settings = ['الملف الشخصي', 'الحساب', 'لوحة التحكم', 'الخروج'];
 
 function ResponsiveAppBar() {
@@ -71,23 +93,25 @@ function ResponsiveAppBar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              {pages.map((page, index) => (
+                <MenuItem key={index} onClick={handleCloseNavMenu}>
+                  <Link to={page.path}><Typography textAlign="center">{page.name}</Typography></Link>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
+            {pages.map((page, index) => (
               <Button
-                key={page}
+                key={index}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                <Typography className='nav-item'>
-                  {page}
-                </Typography>
+                <Link to={page.path} className='nav-list'>
+                  <Typography className='nav-item'>
+                    {page.name}
+                  </Typography>
+                </Link>
               </Button>
             ))}
           </Box>
