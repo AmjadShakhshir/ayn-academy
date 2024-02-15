@@ -33,12 +33,13 @@ $gradient-bg: radial-gradient(circle at 25% 3%, rgba(4, 12, 24, 1) 0%, rgba(0, 4
     background: $gradient-bg;
 }
 
-.gradient__text {
+.gradient-text {
     background: var(--gradient-text);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
 .scale-up-center {
     -webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;

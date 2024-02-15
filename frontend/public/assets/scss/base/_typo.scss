@@ -14,12 +14,5 @@ a, a:visited, a:active {
     transition: all 0.3s ease;
 }
 
-.gradient-text {
-    background: var(--gradient-text);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
 $fw-500: 500;
 $fw-700: 700;

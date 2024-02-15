@@ -3,6 +3,8 @@ import Why from "../containers/Why";
 import Future from "../containers/Future";
 import CoursesFeatures from "../containers/CoursesFeatures";
 import Cta from "../containers/CTA";
+import Possibility from "../containers/Possibility";
+import Schedule from "../containers/Schedule";
 
 const Home = () => {
   return (
@@ -10,8 +12,10 @@ const Home = () => {
         <Brands />
         <Why />
         <Future />
+        <Possibility />
         <Cta />
         <CoursesFeatures />
+        <Schedule />
     </>
   )
 }
