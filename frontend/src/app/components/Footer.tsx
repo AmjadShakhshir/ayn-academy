@@ -5,6 +5,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 import { images } from "../constants";
+import { Link } from "react-router-dom";
 
 const list = [{
     name: 'الرئيسية',
@@ -49,27 +50,15 @@ const socialMedia = [{
 
 const Footer = () => {
     return (
-            <Box component="footer" sx={{
-                backgroundColor: '#f3f3f3',
-                padding: 5,
-                display: 'flex',
-                flexDirection: 'column',
-                textAlign: 'center',
-                borderTop: '2px solid #facc80',
-                color: '#777',
-                fontSize: '1.2rem',
-                width: '100%',
-            }}>
-                <Box>
-                    <Typography>جميع الحقوق محفوظة لموقع عين 2024</Typography>
+            <Box component="footer" className="footer">
+                <Box className="footer1">
+                    <Typography variant="h3" className="footer1-headline1">
+                        اكتشاف كيفية التوقع والتكيف مع أحدث الاتجاهات والرقمية
+                    </Typography>
+                    <Typography variant="body2" className="footer1-headline2">جميع الحقوق محفوظة لموقع عين 2024</Typography>
                     <img src={images.logo} alt="logo" />
                     <nav aria-label="footer menu">
-                        <List sx={{
-                            display: 'flex',
-                            flexDirection: 'row',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                        }}>
+                        <List className="footer-list">
                             {list.map((list, index) =>
                             <ListItem key={index} disablePadding sx={{ 
                                     display: 'block',
@@ -77,19 +66,16 @@ const Footer = () => {
                                     width: '100px',
                                 }}>
                                 <ListItemButton sx={{ textAlign: 'center'}}>
-                                    <ListItemText primary={list.name} />
+                                    <Link to={list.path} className="footer-link">
+                                        <ListItemText primary={list.name} />
+                                    </Link>
                                 </ListItemButton>
                             </ListItem> 
                             )}
                         </List>
                     </nav>
                     <nav aria-label="social media">
-                        <List sx={{
-                            display: 'flex',
-                            flexDirection: 'row',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                        }}>
+                        <List className="footer-social">
                             {socialMedia.map((socialMedia, index) =>
                             <ListItem key={index} disablePadding sx={{ 
                                     display: 'block',
@@ -98,7 +84,9 @@ const Footer = () => {
                                 }}>
                                 <ListItemButton sx={{ textAlign: 'center'}}>
                                     <ListItemIcon>
-                                        {socialMedia.icon}
+                                        <Typography variant="h6" className="footer-social-icon">
+                                            {socialMedia.icon}
+                                        </Typography>
                                     </ListItemIcon>
                                 </ListItemButton>
                             </ListItem> 
