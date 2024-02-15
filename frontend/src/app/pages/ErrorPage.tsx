@@ -11,7 +11,7 @@ const ErrorPage = () => {
   return (
     <Box className='error'>
       <img className='error-img' src="https://cdn.pixabay.com/photo/2017/02/12/21/29/false-2061131_1280.png" alt="error" />
-      <Typography>
+      <Typography className='error-text'>
         الصفحة التي تبحث عنها قد تمت إزالتها أو غير متاحة مؤقتًا. يرجى التحقق من عنوان URL والمحاولة مرة أخرى.
       </Typography>
       <Button
