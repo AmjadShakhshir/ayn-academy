@@ -1,0 +1,32 @@
+.courses {
+    &-content {
+        margin-top: 0.5rem;
+    }
+
+    &-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        color: var(--color-white);
+    }
+    
+    &-list {
+        grid-column: 1;
+        width: 400px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        margin-top: 0.5rem;
+    }
+
+    &-categories {
+        grid-column: 2;
+        width: 100px;
+        background-color: var(--color-white);
+        border-radius: 5px;
+    }
+
+}

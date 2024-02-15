@@ -9,7 +9,8 @@ export const Menu = ({ setTopicSort }: { setTopicSort: (topic: string) => void})
         justifyContent: 'center',
         borderRadius: '10px',
         gap: 2,
-        pt: 2
+        pt: 2,
+        color: '#81AFDD'
     }}>
         {topics.map((topic, index) => (
             <MenuItem key={index} onClick={() => setTopicSort(topic)}>{topic}</MenuItem>

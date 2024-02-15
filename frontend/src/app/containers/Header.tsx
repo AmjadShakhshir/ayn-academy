@@ -1,6 +1,5 @@
 import { Box, Container, Grid, Typography, TextField, FormControl } from '@mui/material'
 import { Link } from 'react-router-dom'
-import Navbar from '../components/Navbar'
 import { images } from '../constants'
 import { useState } from 'react'
 
@@ -18,7 +17,6 @@ const Header = () => {
   return (
     <Box component="main" className="home gradient-bg" sx={{ flexGrow: 1}}>
         <Container maxWidth="xl">
-          <Navbar />
             <Grid container spacing={3}
             sx={{
                 display: "flex",

@@ -34,9 +34,9 @@ const CourseItem = ({course}: {course: Course}) => {
                         </Typography>
                         <Typography gutterBottom variant="body2" component="h2" sx={{
                             border: '1px solid #ccc',
-                            padding: '12px 10px',
+                            padding: '12px 15px',
                             textAlign: 'center',
-                            borderRadius: '50%',
+                            borderRadius: '45px',
                             backgroundColor: '#ffb14c',
                         }}>
                             {course.price} €

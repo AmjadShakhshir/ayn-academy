@@ -1,21 +1,16 @@
 import { useEffect, useState } from 'react';
 import { SelectChangeEvent } from '@mui/material/Select';
-import MenuList from '@mui/material/MenuList';
 import MenuItem from '@mui/material/MenuItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import Select from '@mui/material/Select';
 import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import GridViewIcon from '@mui/icons-material/GridView';
-import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 
 import { courseData } from '../data/courseData';
 import CoursesHeader from '../components/CoursesHeader';
 import { Menu } from '../components/Menu';
 import { Courses } from '../components/Courses';
+import { Box } from '@mui/material';
 
 const CoursesPage = () =>{
     const [categories, setCategories] = useState('');
@@ -45,28 +40,11 @@ const CoursesPage = () =>{
     }   
 
     return (
-        <Stack component="main" sx={{
-            backgroundColor: 'lightgray'
-        }}>
+        <Stack component="main" className='courses'>
             <CoursesHeader />
 
             <Stack component="div" className='courses-content' >
-                <Container maxWidth="md" className='courses-content-container'>
-                    <MenuList className='courses-content-list'>
-                        <MenuItem>
-                            <ListItemIcon>
-                                <GridViewIcon fontSize="small" />
-                            </ListItemIcon>
-                            <Typography variant="inherit" fontSize={20}>عرض شبكي</Typography>
-                        </MenuItem>
-                        <MenuItem>
-                            <ListItemIcon>
-                                <FormatListBulletedIcon fontSize="small" />
-                            </ListItemIcon>
-                            <Typography variant="inherit" fontSize={20}>عرض قائمة</Typography>
-                        </MenuItem>
-                    </MenuList> 
-
+                <Box component={'div'} className='courses-container'>
                     <FormControl className='courses-categories'>
                         <InputLabel id="demo-simple-select-label">تصنيف</InputLabel>
                         <Select
@@ -80,9 +58,9 @@ const CoursesPage = () =>{
                             <MenuItem value={'desc'}>تنازليا</MenuItem>
                         </Select>
                     </FormControl>
-                </Container>
+                    <Menu setTopicSort={setTopicSort} />
+                </Box>
             </Stack>
-            <Menu setTopicSort={setTopicSort} />
             <Courses sortedCourses={sortedCourses} /> 
         </Stack>
     );
