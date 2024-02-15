@@ -1,0 +1,14 @@
+@use '../abstract' as abs;
+
+
+.courses {
+    @extend .gradient-bg;
+    padding: abs.$padding-section;
+
+    &-header {
+        text-align: center;
+        padding-bottom: 2rem;
+        
+        @extend .gradient-text;
+    }
+}

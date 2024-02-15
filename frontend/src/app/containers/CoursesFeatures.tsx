@@ -6,13 +6,11 @@ import { courseData } from "../../features/courses/data/courseData";
 
 const CoursesFeatures = () => {
     return (
-        <Box component='div' sx={{
-            backgroundColor: '#ffe5df',
-            padding: '60px 0'
-        }}>
+        <Box component='div' className="courses">
             <Container maxWidth="lg">
-                <Typography variant='h4' sx={{ textAlign: 'center', marginBottom: '40px' }}>
-                    اختر من بين أفضل الدورات
+                <Typography variant='h4' className="courses-header">
+                    أكاديمية عين هي العنوان،
+                    هناك الكثير من دورات العلم والمعرفة.
                 </Typography>
                 <Grid container spacing={2} sx={{ padding: '20px 0' }}>
                     {courseData.slice(0, 3).map((course, index) => (
