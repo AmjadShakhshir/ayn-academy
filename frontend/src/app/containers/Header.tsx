@@ -44,10 +44,12 @@ const Header = () => {
                         value={email}
                         onChange={onChange}
                         variant="outlined"
+                        color='error'
                         sx={{ width: "70%",
-                        color: "white",
-                        borderTopLeftRadius: 0,
-                        borderBottomLeftRadius: 0,}}
+                        backgroundColor: "white",
+                        borderRadius: 3,
+                        borderTopLeftRadius: 5,
+                        borderBottomLeftRadius: 5,}}
                         />
                         <FormControl>
                             <button
