@@ -8,7 +8,7 @@ const CourseItem = ({course}: {course: Course}) => {
         <Grid item key={course._id} xs={12} sm={6} md={4}>
             <Link to={`/courses/${course._id}`} style={{textDecoration: 'none'}}>
                 <Card
-                    sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+                    sx={{ height: '100%', display: 'flex', flexDirection: 'column', borderRadius: '15px'}}
                 >
                 <CardMedia
                     component="div"

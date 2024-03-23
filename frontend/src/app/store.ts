@@ -12,9 +12,7 @@ const rootReducer = combineReducers({
 
 export const store = configureStore({
     reducer: {
-        auth: authReducer,
-        courses: courseReducer,
-        users: usersReducer,
+        reducer: rootReducer
     },
 });
 

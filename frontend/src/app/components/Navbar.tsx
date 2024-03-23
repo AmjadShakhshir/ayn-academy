@@ -30,9 +30,6 @@ const pages = [{
     name: 'المنتدى',
     path: '/forum',
 },{
-    name: 'المساعدة',
-    path: '/help',
-},{
     name: 'اتصل بنا',
     path: '/contact',
 }];

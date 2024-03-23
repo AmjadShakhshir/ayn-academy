@@ -10,6 +10,7 @@ import Who from './app/pages/who';
 import Contact from './app/pages/Contact';
 import CoursesPage from './features/courses/pages/CoursesPage';
 import Course from './features/courses/pages/CoursePage';
+import About from './app/pages/About';
 
 function App() {  
   const router = createBrowserRouter([
@@ -20,6 +21,9 @@ function App() {
         {
           path: '/',
           element: <Home />
+        },{
+          path: 'about',
+          element: <About />
         },
         {
           path: 'dashboard',

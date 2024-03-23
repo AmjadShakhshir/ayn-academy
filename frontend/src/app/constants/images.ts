@@ -16,8 +16,10 @@ import possibility from '../../../public/assets/imgs/possibility.png';
 import shopify from '../../../public/assets/imgs/shopify.png';
 import slack from '../../../public/assets/imgs/slack.png';
 import group_people from '../../../public/assets/imgs/group_people.png';
+import about from '../../../public/assets/imgs/about.jpg';
 
 const images = {
+    about,
     ai,
     atlassian,
     blog01,
